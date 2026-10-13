@@ -824,6 +824,7 @@ namespace PAKOPointOfSale
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            optionsToolStripMenuItem.ForeColor = Color.FromArgb(33, 39, 56); // Change to orange
             ActivityLogs.Log(
                 user: LoggedInUser.FullName,
                 action: "click",
@@ -836,6 +837,21 @@ namespace PAKOPointOfSale
         private void toolTip_Popup(object sender, PopupEventArgs e)
         {
 
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void optionsToolStripMenuItem_MouseHover(object sender, EventArgs e)
+        {
+            optionsToolStripMenuItem.ForeColor = Color.FromArgb(237, 242, 239);
+        }
+
+        private void optionsToolStripMenuItem_MouseLeave(object sender, EventArgs e)
+        {
+            optionsToolStripMenuItem.ForeColor = Color.FromArgb(237, 242, 239);
         }
     }
 }
