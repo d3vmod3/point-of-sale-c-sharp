@@ -150,7 +150,7 @@ namespace PAKOPointOfSale
             }
             else
             {
-                txtPassword.PasswordChar = '*'; // encripted text
+                txtPassword.PasswordChar = '•'; // encripted text
             }
         }
 
@@ -214,7 +214,7 @@ namespace PAKOPointOfSale
 
         private void Login_Load(object sender, EventArgs e)
         {
-
+            btnClose.FlatAppearance.BorderSize = 0;
         }
     }
 }

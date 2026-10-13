@@ -648,7 +648,7 @@ namespace PAKOPointOfSale
             // pictureBox4
             // 
             pictureBox4.BackColor = SystemColors.ControlDarkDark;
-            pictureBox4.Image = Properties.Resources.PakoLogo;
+            //pictureBox4.Image = Properties.Resources.PakoLogo;
             pictureBox4.Location = new Point(0, 25);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(276, 102);
