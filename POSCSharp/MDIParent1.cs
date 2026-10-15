@@ -853,5 +853,10 @@ namespace PAKOPointOfSale
         {
             optionsToolStripMenuItem.ForeColor = Color.FromArgb(237, 242, 239);
         }
+
+        private void lblTime_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -30,14 +30,14 @@ namespace PAKOPointOfSale
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle19 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle20 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle21 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle22 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle23 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle24 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDIParent1));
             menuStrip = new MenuStrip();
             optionsToolStripMenuItem = new ToolStripMenuItem();
@@ -71,8 +71,6 @@ namespace PAKOPointOfSale
             timeReloadData = new System.Windows.Forms.Timer(components);
             lblTime = new Label();
             lblDate = new Label();
-            label11 = new Label();
-            label12 = new Label();
             button2 = new Button();
             btnPos = new Button();
             btnCategories = new Button();
@@ -154,37 +152,37 @@ namespace PAKOPointOfSale
             // 
             dtgvTop5SellingProducts.AllowUserToAddRows = false;
             dtgvTop5SellingProducts.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle17.ForeColor = Color.Black;
-            dataGridViewCellStyle17.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = Color.White;
-            dtgvTop5SellingProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dtgvTop5SellingProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dtgvTop5SellingProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvTop5SellingProducts.BackgroundColor = Color.FromArgb(237, 242, 239);
-            dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = SystemColors.Window;
-            dataGridViewCellStyle18.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle18.ForeColor = Color.White;
-            dataGridViewCellStyle18.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = DataGridViewTriState.False;
-            dtgvTop5SellingProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dtgvTop5SellingProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dtgvTop5SellingProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvTop5SellingProducts.Columns.AddRange(new DataGridViewColumn[] { product_name, total_quantity_sold, total_sales });
-            dataGridViewCellStyle19.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.BackColor = SystemColors.Window;
-            dataGridViewCellStyle19.Font = new Font("Roboto", 9.75F);
-            dataGridViewCellStyle19.ForeColor = Color.Black;
-            dataGridViewCellStyle19.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = DataGridViewTriState.False;
-            dtgvTop5SellingProducts.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Roboto", 9.75F);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dtgvTop5SellingProducts.DefaultCellStyle = dataGridViewCellStyle3;
             dtgvTop5SellingProducts.Location = new Point(13, 72);
             dtgvTop5SellingProducts.Name = "dtgvTop5SellingProducts";
             dtgvTop5SellingProducts.ReadOnly = true;
             dtgvTop5SellingProducts.RowHeadersVisible = false;
-            dataGridViewCellStyle20.ForeColor = Color.Black;
-            dataGridViewCellStyle20.SelectionBackColor = SystemColors.Highlight;
-            dtgvTop5SellingProducts.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dtgvTop5SellingProducts.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dtgvTop5SellingProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgvTop5SellingProducts.Size = new Size(547, 331);
             dtgvTop5SellingProducts.TabIndex = 11;
@@ -277,7 +275,7 @@ namespace PAKOPointOfSale
             btnExportTop5Selling.FlatStyle = FlatStyle.Popup;
             btnExportTop5Selling.Font = new Font("Roboto", 9.75F);
             btnExportTop5Selling.ForeColor = Color.Black;
-            btnExportTop5Selling.Location = new Point(481, 36);
+            btnExportTop5Selling.Location = new Point(485, 37);
             btnExportTop5Selling.Name = "btnExportTop5Selling";
             btnExportTop5Selling.Size = new Size(75, 23);
             btnExportTop5Selling.TabIndex = 16;
@@ -401,7 +399,7 @@ namespace PAKOPointOfSale
             gbSales.ForeColor = Color.Black;
             gbSales.Location = new Point(585, 41);
             gbSales.Name = "gbSales";
-            gbSales.Size = new Size(574, 186);
+            gbSales.Size = new Size(574, 420);
             gbSales.TabIndex = 17;
             gbSales.TabStop = false;
             gbSales.Text = "Sales";
@@ -473,50 +471,27 @@ namespace PAKOPointOfSale
             // lblTime
             // 
             lblTime.AutoSize = true;
-            lblTime.BackColor = Color.DimGray;
-            lblTime.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTime.BackColor = Color.Transparent;
+            lblTime.Font = new Font("Roboto", 11.25F);
             lblTime.ForeColor = Color.White;
-            lblTime.Location = new Point(480, 25);
+            lblTime.Location = new Point(206, 42);
             lblTime.Name = "lblTime";
-            lblTime.Size = new Size(26, 29);
+            lblTime.Size = new Size(129, 18);
             lblTime.TabIndex = 160;
-            lblTime.Text = "0";
+            lblTime.Text = "hh:mm:ss AM/PM";
+            lblTime.Click += lblTime_Click;
             // 
             // lblDate
             // 
             lblDate.AutoSize = true;
-            lblDate.BackColor = Color.DimGray;
-            lblDate.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDate.BackColor = Color.Transparent;
+            lblDate.Font = new Font("Roboto", 11.25F);
             lblDate.ForeColor = Color.White;
-            lblDate.Location = new Point(291, 21);
+            lblDate.Location = new Point(206, 24);
             lblDate.Name = "lblDate";
-            lblDate.Size = new Size(26, 29);
+            lblDate.Size = new Size(102, 18);
             lblDate.TabIndex = 159;
-            lblDate.Text = "0";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.BackColor = Color.DimGray;
-            label11.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label11.ForeColor = Color.White;
-            label11.Location = new Point(408, 25);
-            label11.Name = "label11";
-            label11.Size = new Size(66, 29);
-            label11.TabIndex = 158;
-            label11.Text = "Time:";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.BackColor = Color.DimGray;
-            label12.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label12.ForeColor = Color.White;
-            label12.Location = new Point(223, 21);
-            label12.Name = "label12";
-            label12.Size = new Size(62, 29);
-            label12.TabIndex = 157;
-            label12.Text = "Date:";
+            lblDate.Text = "MM/DD/YYYY";
             // 
             // button2
             // 
@@ -527,7 +502,7 @@ namespace PAKOPointOfSale
             button2.ForeColor = Color.White;
             button2.Location = new Point(0, 672);
             button2.Name = "button2";
-            button2.Size = new Size(203, 47);
+            button2.Size = new Size(197, 47);
             button2.TabIndex = 162;
             button2.Text = "Logout";
             button2.UseVisualStyleBackColor = false;
@@ -667,39 +642,39 @@ namespace PAKOPointOfSale
             // 
             dtgvLowStocks.AllowUserToAddRows = false;
             dtgvLowStocks.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle21.ForeColor = Color.Black;
-            dataGridViewCellStyle21.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = Color.White;
-            dtgvLowStocks.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            dtgvLowStocks.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             dtgvLowStocks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvLowStocks.BackgroundColor = SystemColors.ControlLight;
-            dataGridViewCellStyle22.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.BackColor = SystemColors.Control;
-            dataGridViewCellStyle22.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
-            dataGridViewCellStyle22.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle22.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = DataGridViewTriState.True;
-            dtgvLowStocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = SystemColors.Control;
+            dataGridViewCellStyle6.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dtgvLowStocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dtgvLowStocks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvLowStocks.Columns.AddRange(new DataGridViewColumn[] { product_name2, quantity, supplier });
-            dataGridViewCellStyle23.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle23.BackColor = SystemColors.Window;
-            dataGridViewCellStyle23.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
-            dataGridViewCellStyle23.ForeColor = Color.Black;
-            dataGridViewCellStyle23.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = DataGridViewTriState.False;
-            dtgvLowStocks.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = SystemColors.Window;
+            dataGridViewCellStyle7.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
+            dtgvLowStocks.DefaultCellStyle = dataGridViewCellStyle7;
             dtgvLowStocks.Location = new Point(6, 22);
             dtgvLowStocks.Name = "dtgvLowStocks";
             dtgvLowStocks.ReadOnly = true;
             dtgvLowStocks.RowHeadersVisible = false;
-            dataGridViewCellStyle24.ForeColor = Color.Black;
-            dataGridViewCellStyle24.SelectionBackColor = SystemColors.Highlight;
-            dtgvLowStocks.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle8.ForeColor = Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dtgvLowStocks.RowsDefaultCellStyle = dataGridViewCellStyle8;
             dtgvLowStocks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvLowStocks.Size = new Size(562, 212);
+            dtgvLowStocks.Size = new Size(553, 212);
             dtgvLowStocks.TabIndex = 11;
             // 
             // product_name2
@@ -767,10 +742,8 @@ namespace PAKOPointOfSale
             panel1.Controls.Add(lblTime);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(pictureBox4);
-            panel1.Controls.Add(lblDate);
-            panel1.Controls.Add(label11);
             panel1.Controls.Add(menuStrip);
-            panel1.Controls.Add(label12);
+            panel1.Controls.Add(lblDate);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -784,7 +757,7 @@ namespace PAKOPointOfSale
             panel3.Controls.Add(gbLowStocks);
             panel3.Controls.Add(gbTop5Sellings);
             panel3.Controls.Add(gbSales);
-            panel3.Location = new Point(203, 69);
+            panel3.Location = new Point(199, 70);
             panel3.Name = "panel3";
             panel3.Size = new Size(1367, 788);
             panel3.TabIndex = 195;
@@ -804,7 +777,7 @@ namespace PAKOPointOfSale
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 69);
             panel2.Name = "panel2";
-            panel2.Size = new Size(203, 719);
+            panel2.Size = new Size(197, 719);
             panel2.TabIndex = 189;
             // 
             // MDIParent1
@@ -823,12 +796,12 @@ namespace PAKOPointOfSale
             IsMdiContainer = true;
             MainMenuStrip = menuStrip;
             Margin = new Padding(4, 3, 4, 3);
+            MaximizeBox = false;
             Name = "MDIParent1";
             SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Super Admin";
             TransparencyKey = Color.White;
-            WindowState = FormWindowState.Maximized;
             Load += SuperAdminForm_Load;
             menuStrip.ResumeLayout(false);
             menuStrip.PerformLayout();
@@ -882,8 +855,6 @@ namespace PAKOPointOfSale
         private System.Windows.Forms.Timer timeReloadData;
         private Label lblTime;
         private Label lblDate;
-        private Label label11;
-        private Label label12;
         private Button button2;
         private Button btnPos;
         private Button btnCategories;
