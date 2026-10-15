@@ -818,7 +818,7 @@ namespace PAKOPointOfSale
                 description: "Clicked Inventory button",
                 payload: null
             );
-            Inventory.Inventory inventoryForm = new Inventory.Inventory();
+            Inventory.InventorySummary inventoryForm = new Inventory.InventorySummary();
             inventoryForm.ShowDialog();
         }
 

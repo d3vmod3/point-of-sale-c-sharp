@@ -13,9 +13,9 @@ using WinFormsApp1.Model;
 
 namespace PAKOPointOfSale.Inventory
 {
-    public partial class Inventory : Form
+    public partial class InventorySummary : Form
     {
-        public Inventory()
+        public InventorySummary()
         {
             InitializeComponent();
         }

@@ -13,7 +13,7 @@
     <Compile Update="Categories\EditCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Inventory\Inventory.cs">
+    <Compile Update="Inventory\InventorySummary.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="MDIParent1.cs">

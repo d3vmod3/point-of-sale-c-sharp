@@ -61,20 +61,25 @@
             lblCategory = new Label();
             lblSupplierID = new Label();
             chkIsActive = new CheckBox();
-            pictureBox2 = new PictureBox();
-            pictureBox1 = new PictureBox();
-            label1 = new Label();
             btnClose = new Button();
             txtBarcode = new TextBox();
             label2 = new Label();
             num_low_quantity = new NumericUpDown();
             label3 = new Label();
+            panel1 = new Panel();
+            label1 = new Label();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            lblTime = new Label();
+            lblDate = new Label();
+            label8 = new Label();
+            pictureBox4 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)num_quantity).BeginInit();
             ((System.ComponentModel.ISupportInitialize)num_unitPrice).BeginInit();
             ((System.ComponentModel.ISupportInitialize)num_costPrice).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)num_low_quantity).BeginInit();
+            panel1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // cmbStatus
@@ -412,38 +417,6 @@
             chkIsActive.Text = "Active";
             chkIsActive.UseVisualStyleBackColor = true;
             // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.DimGray;
-            pictureBox2.Location = new Point(-1, 0);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1371, 117);
-            pictureBox2.TabIndex = 111;
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.DimGray;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-3, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(278, 117);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 112;
-            pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.DimGray;
-            label1.Font = new Font("Impact", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(281, 27);
-            label1.Name = "label1";
-            label1.Size = new Size(314, 60);
-            label1.TabIndex = 113;
-            label1.Text = "ADD PRODUCTS";
-            // 
             // btnClose
             // 
             btnClose.BackColor = Color.Red;
@@ -496,20 +469,109 @@
             label3.TabIndex = 117;
             label3.Text = "Low In Stock Quantity:";
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(33, 39, 56);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(tableLayoutPanel1);
+            panel1.Controls.Add(label8);
+            panel1.Controls.Add(pictureBox4);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1370, 69);
+            panel1.TabIndex = 196;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Roboto", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(237, 242, 239);
+            label1.Location = new Point(594, 12);
+            label1.Name = "label1";
+            label1.Size = new Size(254, 42);
+            label1.TabIndex = 194;
+            label1.Text = "ADD PRODUCT";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(lblTime, 0, 1);
+            tableLayoutPanel1.Controls.Add(lblDate, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Right;
+            tableLayoutPanel1.Location = new Point(1170, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(200, 69);
+            tableLayoutPanel1.TabIndex = 192;
+            // 
+            // lblTime
+            // 
+            lblTime.Anchor = AnchorStyles.Right;
+            lblTime.AutoSize = true;
+            lblTime.BackColor = Color.Transparent;
+            lblTime.Font = new Font("Roboto", 11.25F);
+            lblTime.ForeColor = Color.White;
+            lblTime.Location = new Point(109, 42);
+            lblTime.Name = "lblTime";
+            lblTime.Size = new Size(88, 18);
+            lblTime.TabIndex = 160;
+            lblTime.Text = "hh:mm:ss tt";
+            // 
+            // lblDate
+            // 
+            lblDate.Anchor = AnchorStyles.Right;
+            lblDate.AutoSize = true;
+            lblDate.BackColor = Color.Transparent;
+            lblDate.Font = new Font("Roboto", 11.25F);
+            lblDate.ForeColor = Color.White;
+            lblDate.Location = new Point(95, 8);
+            lblDate.Name = "lblDate";
+            lblDate.Size = new Size(102, 18);
+            lblDate.TabIndex = 159;
+            lblDate.Text = "MM/DD/YYYY";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BackColor = Color.Transparent;
+            label8.Font = new Font("Roboto", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.FromArgb(237, 242, 239);
+            label8.Location = new Point(62, 12);
+            label8.Name = "label8";
+            label8.Size = new Size(127, 42);
+            label8.TabIndex = 191;
+            label8.Text = "ATPOS";
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.BackColor = Color.Transparent;
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(3, 0);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(74, 63);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 189;
+            pictureBox4.TabStop = false;
+            // 
             // AddProducts
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.CadetBlue;
+            BackColor = Color.FromArgb(237, 242, 239);
             ClientSize = new Size(1370, 747);
+            Controls.Add(panel1);
             Controls.Add(num_low_quantity);
             Controls.Add(label3);
             Controls.Add(txtBarcode);
             Controls.Add(label2);
             Controls.Add(btnClose);
-            Controls.Add(label1);
-            Controls.Add(pictureBox1);
-            Controls.Add(pictureBox2);
             Controls.Add(chkIsActive);
             Controls.Add(cmbStatus);
             Controls.Add(num_quantity);
@@ -542,7 +604,8 @@
             Controls.Add(lblProductName);
             Controls.Add(lblCategory);
             Controls.Add(lblSupplierID);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "AddProducts";
@@ -553,9 +616,12 @@
             ((System.ComponentModel.ISupportInitialize)num_quantity).EndInit();
             ((System.ComponentModel.ISupportInitialize)num_unitPrice).EndInit();
             ((System.ComponentModel.ISupportInitialize)num_costPrice).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)num_low_quantity).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -594,13 +660,17 @@
         private Label lblCategory;
         private Label lblSupplierID;
         private CheckBox chkIsActive;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox1;
-        private Label label1;
         private Button btnClose;
         private TextBox txtBarcode;
         private Label label2;
         private NumericUpDown num_low_quantity;
         private Label label3;
+        private Panel panel1;
+        private Label label1;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Label lblTime;
+        private Label lblDate;
+        private Label label8;
+        private PictureBox pictureBox4;
     }
 }
