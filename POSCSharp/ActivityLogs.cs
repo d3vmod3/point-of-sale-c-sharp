@@ -45,6 +45,7 @@ namespace PAKOPointOfSale
 
                         cmd.ExecuteNonQuery();
                     }
+                    conn.Close();
                 }
             }
             catch (Exception ex)

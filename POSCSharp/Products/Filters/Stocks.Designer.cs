@@ -31,25 +31,28 @@
             label1 = new Label();
             btnFilter = new Button();
             num_quantity = new NumericUpDown();
-            btnClose = new Button();
+            btnCancel = new Button();
             ((System.ComponentModel.ISupportInitialize)num_quantity).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
+            label1.ForeColor = Color.Black;
             label1.Location = new Point(12, 26);
             label1.Name = "label1";
-            label1.Size = new Size(359, 15);
+            label1.Size = new Size(377, 15);
             label1.TabIndex = 0;
             label1.Text = "Please input the minimum quantity you want to apply for this filter";
             // 
             // btnFilter
             // 
-            btnFilter.BackColor = Color.Khaki;
+            btnFilter.BackColor = Color.FromArgb(33, 39, 56);
             btnFilter.FlatStyle = FlatStyle.Popup;
-            btnFilter.ForeColor = Color.Black;
-            btnFilter.Location = new Point(223, 76);
+            btnFilter.Font = new Font("Roboto", 9.75F);
+            btnFilter.ForeColor = Color.FromArgb(237, 242, 239);
+            btnFilter.Location = new Point(241, 73);
             btnFilter.Name = "btnFilter";
             btnFilter.Size = new Size(75, 23);
             btnFilter.TabIndex = 2;
@@ -59,42 +62,44 @@
             // 
             // num_quantity
             // 
-            num_quantity.BackColor = SystemColors.ActiveBorder;
+            num_quantity.BackColor = SystemColors.Window;
             num_quantity.DecimalPlaces = 2;
             num_quantity.Location = new Point(12, 44);
             num_quantity.Name = "num_quantity";
-            num_quantity.Size = new Size(359, 23);
+            num_quantity.Size = new Size(377, 23);
             num_quantity.TabIndex = 3;
             // 
-            // btnClose
+            // btnCancel
             // 
-            btnClose.BackColor = Color.Red;
-            btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(305, 76);
-            btnClose.Name = "btnClose";
-            btnClose.Size = new Size(66, 23);
-            btnClose.TabIndex = 117;
-            btnClose.Text = "Cancel";
-            btnClose.UseVisualStyleBackColor = false;
-            btnClose.Click += btnClose_Click;
+            btnCancel.BackColor = Color.FromArgb(249, 112, 104);
+            btnCancel.FlatStyle = FlatStyle.Popup;
+            btnCancel.Font = new Font("Roboto", 9.75F);
+            btnCancel.ForeColor = Color.FromArgb(237, 242, 239);
+            btnCancel.Location = new Point(323, 73);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(66, 23);
+            btnCancel.TabIndex = 117;
+            btnCancel.Text = "Cancel";
+            btnCancel.UseVisualStyleBackColor = false;
+            btnCancel.Click += btnClose_Click;
             // 
             // Stocks
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.CadetBlue;
-            ClientSize = new Size(391, 118);
-            Controls.Add(btnClose);
+            BackColor = Color.FromArgb(237, 242, 239);
+            ClientSize = new Size(400, 118);
+            ControlBox = false;
+            Controls.Add(btnCancel);
             Controls.Add(num_quantity);
             Controls.Add(btnFilter);
             Controls.Add(label1);
             ForeColor = Color.White;
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Stocks";
+            SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Filter Stocks";
             Load += Stocks_Load;
@@ -109,6 +114,6 @@
         private Label label1;
         private Button btnFilter;
         private NumericUpDown num_quantity;
-        private Button btnClose;
+        private Button btnCancel;
     }
 }

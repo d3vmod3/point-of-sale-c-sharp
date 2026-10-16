@@ -36,13 +36,13 @@ namespace PAKOPointOfSale.Options
                         grpBoxActivityLogs.Visible = true;
                         grpBoxBackupDatabase.Visible = false;
                         lstOptions.SelectedItem = "Activity Logs";
-                        loadActivityLogs();
+                        //loadActivityLogs();
                         break;
                     case "Backup Database":
                         grpBoxActivityLogs.Visible = false;
                         grpBoxBackupDatabase.Visible = true;
                         lstOptions.SelectedItem = "Backup Database";
-                        loadBackupDatabaseLocation();
+                        //loadBackupDatabaseLocation();
                         break;
                     default:
                         MessageBox.Show("Invalid option selected.");
@@ -61,7 +61,7 @@ namespace PAKOPointOfSale.Options
                 {
                     conn.Open();
                     DateTime startDate = dtpFrom.Value.Date;
-                    DateTime endDate = dtpTo.Value.Date.AddDays(1).AddTicks(-1);
+                    DateTime endDate = dtpTo.Value.Date.AddDays(1);
                     // Select all users (adjust columns as needed)
                     string query = @"SELECT [timestamp]
                                       ,[user]
@@ -69,7 +69,7 @@ namespace PAKOPointOfSale.Options
                                       ,[action]
                                       ,[description]
                                       ,[payload]
-                                  FROM [db_pos].[dbo].[ActivityLogs]
+                                  FROM ActivityLogs
                                     Where timestamp BETWEEN @startDate AND @endDate";
 
                     using (SqlDataAdapter da = new SqlDataAdapter(query, conn))
@@ -82,6 +82,7 @@ namespace PAKOPointOfSale.Options
 
                         dgvActivityLogs.DataSource = activityLogsTable; // Bind DataTable to DataGridView
                     }
+                    conn.Close();
                 }
             }
             catch (Exception ex)
@@ -314,22 +315,7 @@ namespace PAKOPointOfSale.Options
                     date_to = dtpTo.Value.ToString()
                 }
             );
-            if (activityLogsTable == null || activityLogsTable.Rows.Count == 0)
-            {
-                ActivityLogs.Log(
-                    user: LoggedInUser.FullName,
-                    action: "click",
-                    module: "Activity Logs",
-                    description: "Clicked Filter button",
-                    payload: new
-                    {
-                        status = "failed",
-                        reason = "No data loaded"
-                    }
-                );
-                MessageBox.Show("No data loaded.");
-                return;
-            }
+            
 
             try
             {
@@ -340,7 +326,22 @@ namespace PAKOPointOfSale.Options
                 // Start building filter
                 string filter = $"timestamp >= #{fromDate:M/d/yyyy h:mm tt}# AND timestamp <= #{toDate:M/d/yyyy h:mm tt}#";
 
-
+                if (activityLogsTable == null || activityLogsTable.Rows.Count == 0)
+                {
+                    ActivityLogs.Log(
+                        user: LoggedInUser.FullName,
+                        action: "click",
+                        module: "Activity Logs",
+                        description: "Clicked Filter button",
+                        payload: new
+                        {
+                            status = "failed",
+                            reason = "No data loaded"
+                        }
+                    );
+                    MessageBox.Show("No data loaded.");
+                    return;
+                }
 
                 // Apply filter to DataView
                 activityLogsTable.DefaultView.RowFilter = filter;
