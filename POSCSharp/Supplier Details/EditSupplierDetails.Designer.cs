@@ -40,22 +40,27 @@
             label2 = new Label();
             chkIsActive = new CheckBox();
             lblCreatedAt = new Label();
-            lblAddUser = new Label();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
             label1 = new Label();
             btnClose = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panel1 = new Panel();
+            label7 = new Label();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            lblTime = new Label();
+            lblDate = new Label();
+            label8 = new Label();
+            pictureBox4 = new PictureBox();
+            panel1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // btnSubmit
             // 
-            btnSubmit.BackColor = Color.SeaGreen;
+            btnSubmit.BackColor = Color.FromArgb(33, 39, 56);
             btnSubmit.FlatStyle = FlatStyle.Popup;
-            btnSubmit.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            btnSubmit.ForeColor = Color.Black;
-            btnSubmit.Location = new Point(110, 344);
+            btnSubmit.Font = new Font("Roboto", 9.75F);
+            btnSubmit.ForeColor = Color.FromArgb(237, 242, 239);
+            btnSubmit.Location = new Point(411, 264);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(75, 28);
             btnSubmit.TabIndex = 25;
@@ -65,71 +70,71 @@
             // 
             // txtContactNumber
             // 
-            txtContactNumber.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            txtContactNumber.Location = new Point(183, 168);
+            txtContactNumber.Font = new Font("Roboto", 14.25F);
+            txtContactNumber.Location = new Point(212, 157);
             txtContactNumber.MaxLength = 18;
             txtContactNumber.Multiline = true;
             txtContactNumber.Name = "txtContactNumber";
-            txtContactNumber.Size = new Size(173, 23);
+            txtContactNumber.Size = new Size(356, 30);
             txtContactNumber.TabIndex = 23;
             txtContactNumber.KeyPress += txtContactNumber_KeyPress;
             // 
             // txtEmail
             // 
-            txtEmail.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            txtEmail.Location = new Point(147, 212);
+            txtEmail.Font = new Font("Roboto", 14.25F);
+            txtEmail.Location = new Point(184, 193);
             txtEmail.MaxLength = 50;
             txtEmail.Multiline = true;
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(209, 23);
+            txtEmail.Size = new Size(385, 30);
             txtEmail.TabIndex = 22;
             // 
             // txtAddress
             // 
-            txtAddress.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            txtAddress.Location = new Point(147, 133);
+            txtAddress.Font = new Font("Roboto", 14.25F);
+            txtAddress.Location = new Point(184, 121);
             txtAddress.Multiline = true;
             txtAddress.Name = "txtAddress";
-            txtAddress.Size = new Size(209, 23);
+            txtAddress.Size = new Size(385, 30);
             txtAddress.TabIndex = 21;
             // 
             // txtSupplierName
             // 
-            txtSupplierName.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            txtSupplierName.Location = new Point(147, 92);
+            txtSupplierName.Font = new Font("Roboto", 14.25F);
+            txtSupplierName.Location = new Point(184, 85);
             txtSupplierName.MaxLength = 50;
             txtSupplierName.Multiline = true;
             txtSupplierName.Name = "txtSupplierName";
-            txtSupplierName.Size = new Size(209, 23);
+            txtSupplierName.Size = new Size(385, 30);
             txtSupplierName.TabIndex = 20;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(98, 215);
+            label5.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
+            label5.Location = new Point(136, 202);
             label5.Name = "label5";
-            label5.Size = new Size(43, 17);
+            label5.Size = new Size(42, 15);
             label5.TabIndex = 18;
             label5.Text = "Email:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(30, 168);
+            label4.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
+            label4.Location = new Point(73, 166);
             label4.Name = "label4";
-            label4.Size = new Size(113, 17);
+            label4.Size = new Size(105, 15);
             label4.TabIndex = 17;
             label4.Text = "Contact Number:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(83, 136);
+            label3.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
+            label3.Location = new Point(116, 130);
             label3.Name = "label3";
-            label3.Size = new Size(60, 17);
+            label3.Size = new Size(60, 15);
             label3.TabIndex = 16;
             label3.Text = "Address:";
             label3.Click += label3_Click;
@@ -137,20 +142,20 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(41, 98);
+            label2.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
+            label2.Location = new Point(83, 94);
             label2.Name = "label2";
-            label2.Size = new Size(100, 17);
+            label2.Size = new Size(95, 15);
             label2.TabIndex = 15;
             label2.Text = "Supplier Name:";
             // 
             // chkIsActive
             // 
             chkIsActive.AutoSize = true;
-            chkIsActive.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            chkIsActive.Location = new Point(292, 314);
+            chkIsActive.Font = new Font("Roboto Condensed", 9.75F, FontStyle.Bold);
+            chkIsActive.Location = new Point(346, 273);
             chkIsActive.Name = "chkIsActive";
-            chkIsActive.Size = new Size(64, 21);
+            chkIsActive.Size = new Size(59, 19);
             chkIsActive.TabIndex = 26;
             chkIsActive.Text = "Active";
             chkIsActive.UseVisualStyleBackColor = true;
@@ -158,63 +163,30 @@
             // lblCreatedAt
             // 
             lblCreatedAt.AutoSize = true;
-            lblCreatedAt.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCreatedAt.Location = new Point(53, 245);
+            lblCreatedAt.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
+            lblCreatedAt.Location = new Point(92, 238);
             lblCreatedAt.Name = "lblCreatedAt";
-            lblCreatedAt.Size = new Size(90, 17);
+            lblCreatedAt.Size = new Size(86, 15);
             lblCreatedAt.TabIndex = 27;
             lblCreatedAt.Text = "Date Created:";
-            // 
-            // lblAddUser
-            // 
-            lblAddUser.AutoSize = true;
-            lblAddUser.BackColor = Color.DimGray;
-            lblAddUser.Font = new Font("Impact", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblAddUser.ForeColor = Color.White;
-            lblAddUser.Location = new Point(110, 12);
-            lblAddUser.Name = "lblAddUser";
-            lblAddUser.Size = new Size(177, 36);
-            lblAddUser.TabIndex = 30;
-            lblAddUser.Text = "EDIT SUPPLIER";
-            lblAddUser.Click += lblAddUser_Click;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.DimGray;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-1, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(110, 62);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 29;
-            pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.DimGray;
-            pictureBox2.Location = new Point(-3, 0);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(425, 62);
-            pictureBox2.TabIndex = 31;
-            pictureBox2.TabStop = false;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(149, 171);
+            label1.Font = new Font("Roboto", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.Location = new Point(178, 166);
             label1.Name = "label1";
-            label1.Size = new Size(31, 17);
+            label1.Size = new Size(28, 15);
             label1.TabIndex = 152;
             label1.Text = "+63";
             // 
             // btnClose
             // 
-            btnClose.BackColor = Color.Red;
+            btnClose.BackColor = Color.FromArgb(249, 112, 104);
             btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            btnClose.ForeColor = Color.Black;
-            btnClose.Location = new Point(204, 344);
+            btnClose.Font = new Font("Roboto", 9.75F);
+            btnClose.ForeColor = Color.FromArgb(237, 242, 239);
+            btnClose.Location = new Point(492, 264);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(76, 28);
             btnClose.TabIndex = 153;
@@ -222,17 +194,106 @@
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(33, 39, 56);
+            panel1.Controls.Add(label7);
+            panel1.Controls.Add(tableLayoutPanel1);
+            panel1.Controls.Add(label8);
+            panel1.Controls.Add(pictureBox4);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(674, 69);
+            panel1.TabIndex = 196;
+            // 
+            // label7
+            // 
+            label7.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            label7.AutoSize = true;
+            label7.BackColor = Color.Transparent;
+            label7.Font = new Font("Roboto", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.FromArgb(237, 242, 239);
+            label7.Location = new Point(262, 12);
+            label7.Name = "label7";
+            label7.Size = new Size(259, 42);
+            label7.TabIndex = 194;
+            label7.Text = "EDIT SUPPLIER";
+            label7.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(lblTime, 0, 1);
+            tableLayoutPanel1.Controls.Add(lblDate, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Right;
+            tableLayoutPanel1.Location = new Point(474, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(200, 69);
+            tableLayoutPanel1.TabIndex = 192;
+            // 
+            // lblTime
+            // 
+            lblTime.Anchor = AnchorStyles.Right;
+            lblTime.AutoSize = true;
+            lblTime.BackColor = Color.Transparent;
+            lblTime.Font = new Font("Roboto", 11.25F);
+            lblTime.ForeColor = Color.White;
+            lblTime.Location = new Point(109, 42);
+            lblTime.Name = "lblTime";
+            lblTime.Size = new Size(88, 18);
+            lblTime.TabIndex = 160;
+            lblTime.Text = "hh:mm:ss tt";
+            // 
+            // lblDate
+            // 
+            lblDate.Anchor = AnchorStyles.Right;
+            lblDate.AutoSize = true;
+            lblDate.BackColor = Color.Transparent;
+            lblDate.Font = new Font("Roboto", 11.25F);
+            lblDate.ForeColor = Color.White;
+            lblDate.Location = new Point(95, 8);
+            lblDate.Name = "lblDate";
+            lblDate.Size = new Size(102, 18);
+            lblDate.TabIndex = 159;
+            lblDate.Text = "MM/DD/YYYY";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BackColor = Color.Transparent;
+            label8.Font = new Font("Roboto", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.FromArgb(237, 242, 239);
+            label8.Location = new Point(62, 12);
+            label8.Name = "label8";
+            label8.Size = new Size(127, 42);
+            label8.TabIndex = 191;
+            label8.Text = "ATPOS";
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.BackColor = Color.Transparent;
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(3, 0);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(74, 63);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 189;
+            pictureBox4.TabStop = false;
+            // 
             // EditSupplierDetails
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.CadetBlue;
-            ClientSize = new Size(386, 394);
+            BackColor = Color.FromArgb(237, 242, 239);
+            ClientSize = new Size(674, 339);
+            Controls.Add(panel1);
             Controls.Add(btnClose);
             Controls.Add(label1);
-            Controls.Add(lblAddUser);
-            Controls.Add(pictureBox1);
-            Controls.Add(pictureBox2);
             Controls.Add(lblCreatedAt);
             Controls.Add(chkIsActive);
             Controls.Add(btnSubmit);
@@ -250,8 +311,11 @@
             Text = "EditSupplierDetails";
             Load += EditSupplierDetails_Load;
             KeyDown += EditSupplierDetails_KeyDown;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -271,11 +335,15 @@
         private Label label2;
         private CheckBox chkIsActive;
         private Label lblCreatedAt;
-        private Label lblAddUser;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
         private DateTimePicker dateTimePicker1;
         private Label label1;
         private Button btnClose;
+        private Panel panel1;
+        private Label label7;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Label lblTime;
+        private Label lblDate;
+        private Label label8;
+        private PictureBox pictureBox4;
     }
 }

@@ -39,6 +39,7 @@
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuppliersList));
             btnExport = new Button();
             btnAdd = new Button();
             txtSearch = new TextBox();
@@ -53,8 +54,6 @@
             created_at = new DataGridViewTextBoxColumn();
             edit = new DataGridViewButtonColumn();
             supplierDetailsBindingSource = new BindingSource(components);
-            pictureBox2 = new PictureBox();
-            label1 = new Label();
             label2 = new Label();
             btnClose = new Button();
             dtpFrom = new DateTimePicker();
@@ -65,16 +64,25 @@
             btnClearFilter = new Button();
             cmbStatus = new ComboBox();
             label5 = new Label();
+            panel1 = new Panel();
+            label1 = new Label();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            lblTime = new Label();
+            lblDate = new Label();
+            label8 = new Label();
+            pictureBox4 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)supplierDetailsBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panel1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // btnExport
             // 
-            btnExport.BackColor = Color.Gold;
+            btnExport.BackColor = Color.FromArgb(87, 196, 229);
             btnExport.FlatStyle = FlatStyle.Popup;
-            btnExport.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExport.Font = new Font("Roboto", 9.75F);
             btnExport.ForeColor = Color.Black;
             btnExport.Location = new Point(1191, 111);
             btnExport.Name = "btnExport";
@@ -86,10 +94,10 @@
             // 
             // btnAdd
             // 
-            btnAdd.BackColor = Color.Green;
+            btnAdd.BackColor = Color.FromArgb(33, 39, 56);
             btnAdd.FlatStyle = FlatStyle.Popup;
-            btnAdd.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdd.ForeColor = Color.Black;
+            btnAdd.Font = new Font("Roboto", 9.75F);
+            btnAdd.ForeColor = Color.FromArgb(237, 242, 239);
             btnAdd.Location = new Point(1106, 112);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(79, 28);
@@ -100,6 +108,7 @@
             // 
             // txtSearch
             // 
+            txtSearch.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
             txtSearch.Location = new Point(77, 114);
             txtSearch.MaxLength = 60;
             txtSearch.Name = "txtSearch";
@@ -122,9 +131,10 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = Color.FromArgb(237, 242, 239);
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
@@ -135,7 +145,7 @@
             dataGridView1.DataSource = supplierDetailsBindingSource;
             dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle9.BackColor = SystemColors.Window;
-            dataGridViewCellStyle9.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle9.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
             dataGridViewCellStyle9.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
@@ -244,45 +254,23 @@
             // 
             supplierDetailsBindingSource.DataSource = typeof(SupplierDetails);
             // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = SystemColors.ControlDarkDark;
-            pictureBox2.Location = new Point(-1, 0);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1370, 95);
-            pictureBox2.TabIndex = 11;
-            pictureBox2.TabStop = false;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = SystemColors.ControlDarkDark;
-            label1.FlatStyle = FlatStyle.System;
-            label1.Font = new Font("Impact", 50.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(501, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(440, 82);
-            label1.TabIndex = 147;
-            label1.Text = "SUPPLIERS LIST";
-            // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
             label2.Location = new Point(12, 117);
             label2.Name = "label2";
-            label2.Size = new Size(59, 20);
+            label2.Size = new Size(52, 15);
             label2.TabIndex = 148;
             label2.Text = "Search:";
             label2.Click += label2_Click;
             // 
             // btnClose
             // 
-            btnClose.BackColor = Color.Red;
+            btnClose.BackColor = Color.FromArgb(249, 112, 104);
             btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnClose.ForeColor = Color.Black;
+            btnClose.Font = new Font("Roboto", 9.75F);
+            btnClose.ForeColor = Color.FromArgb(237, 242, 239);
             btnClose.Location = new Point(1276, 111);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(79, 29);
@@ -293,7 +281,8 @@
             // 
             // dtpFrom
             // 
-            dtpFrom.Location = new Point(327, 114);
+            dtpFrom.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
+            dtpFrom.Location = new Point(327, 113);
             dtpFrom.Name = "dtpFrom";
             dtpFrom.Size = new Size(185, 23);
             dtpFrom.TabIndex = 151;
@@ -301,38 +290,40 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(330, 98);
+            label3.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
+            label3.Location = new Point(327, 98);
             label3.Name = "label3";
-            label3.Size = new Size(66, 15);
+            label3.Size = new Size(70, 15);
             label3.TabIndex = 152;
             label3.Text = "Date From:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(520, 98);
+            label4.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
+            label4.Location = new Point(519, 97);
             label4.Name = "label4";
-            label4.Size = new Size(51, 15);
+            label4.Size = new Size(54, 15);
             label4.TabIndex = 154;
             label4.Text = "Date To:";
             // 
             // dtpTo
             // 
-            dtpTo.Location = new Point(519, 115);
+            dtpTo.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
+            dtpTo.Location = new Point(518, 114);
             dtpTo.Name = "dtpTo";
             dtpTo.Size = new Size(187, 23);
             dtpTo.TabIndex = 153;
             // 
             // btnFilter
             // 
-            btnFilter.BackColor = Color.Khaki;
+            btnFilter.BackColor = Color.FromArgb(33, 39, 56);
             btnFilter.FlatStyle = FlatStyle.Popup;
-            btnFilter.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnFilter.Font = new Font("Roboto", 9.75F);
+            btnFilter.ForeColor = Color.FromArgb(237, 242, 239);
             btnFilter.Location = new Point(899, 112);
             btnFilter.Name = "btnFilter";
-            btnFilter.Size = new Size(75, 28);
+            btnFilter.Size = new Size(85, 26);
             btnFilter.TabIndex = 159;
             btnFilter.Text = "Filter";
             btnFilter.UseVisualStyleBackColor = false;
@@ -340,12 +331,13 @@
             // 
             // btnClearFilter
             // 
-            btnClearFilter.BackColor = Color.FromArgb(255, 128, 128);
+            btnClearFilter.BackColor = Color.FromArgb(209, 214, 70);
             btnClearFilter.FlatStyle = FlatStyle.Popup;
-            btnClearFilter.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            btnClearFilter.Location = new Point(980, 112);
+            btnClearFilter.Font = new Font("Roboto", 9.75F);
+            btnClearFilter.ForeColor = Color.Black;
+            btnClearFilter.Location = new Point(990, 112);
             btnClearFilter.Name = "btnClearFilter";
-            btnClearFilter.Size = new Size(86, 28);
+            btnClearFilter.Size = new Size(88, 26);
             btnClearFilter.TabIndex = 158;
             btnClearFilter.Text = "Clear Filter";
             btnClearFilter.UseVisualStyleBackColor = false;
@@ -353,9 +345,10 @@
             // 
             // cmbStatus
             // 
+            cmbStatus.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
             cmbStatus.FormattingEnabled = true;
             cmbStatus.Items.AddRange(new object[] { "All", "Active", "Inactive" });
-            cmbStatus.Location = new Point(742, 115);
+            cmbStatus.Location = new Point(742, 113);
             cmbStatus.Name = "cmbStatus";
             cmbStatus.Size = new Size(151, 23);
             cmbStatus.TabIndex = 160;
@@ -363,19 +356,111 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(750, 98);
+            label5.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
+            label5.Location = new Point(742, 98);
             label5.Name = "label5";
-            label5.Size = new Size(72, 15);
+            label5.Size = new Size(80, 15);
             label5.TabIndex = 161;
             label5.Text = "Filter Status:";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(33, 39, 56);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(tableLayoutPanel1);
+            panel1.Controls.Add(label8);
+            panel1.Controls.Add(pictureBox4);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1367, 69);
+            panel1.TabIndex = 195;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Roboto", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(237, 242, 239);
+            label1.Location = new Point(588, 12);
+            label1.Name = "label1";
+            label1.Size = new Size(198, 42);
+            label1.TabIndex = 193;
+            label1.Text = "SUPPLIERS";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(lblTime, 0, 1);
+            tableLayoutPanel1.Controls.Add(lblDate, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Right;
+            tableLayoutPanel1.Location = new Point(1167, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(200, 69);
+            tableLayoutPanel1.TabIndex = 192;
+            // 
+            // lblTime
+            // 
+            lblTime.Anchor = AnchorStyles.Right;
+            lblTime.AutoSize = true;
+            lblTime.BackColor = Color.Transparent;
+            lblTime.Font = new Font("Roboto", 11.25F);
+            lblTime.ForeColor = Color.White;
+            lblTime.Location = new Point(109, 42);
+            lblTime.Name = "lblTime";
+            lblTime.Size = new Size(88, 18);
+            lblTime.TabIndex = 160;
+            lblTime.Text = "hh:mm:ss tt";
+            // 
+            // lblDate
+            // 
+            lblDate.Anchor = AnchorStyles.Right;
+            lblDate.AutoSize = true;
+            lblDate.BackColor = Color.Transparent;
+            lblDate.Font = new Font("Roboto", 11.25F);
+            lblDate.ForeColor = Color.White;
+            lblDate.Location = new Point(95, 8);
+            lblDate.Name = "lblDate";
+            lblDate.Size = new Size(102, 18);
+            lblDate.TabIndex = 159;
+            lblDate.Text = "MM/DD/YYYY";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BackColor = Color.Transparent;
+            label8.Font = new Font("Roboto", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.FromArgb(237, 242, 239);
+            label8.Location = new Point(62, 12);
+            label8.Name = "label8";
+            label8.Size = new Size(127, 42);
+            label8.TabIndex = 191;
+            label8.Text = "ATPOS";
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.BackColor = Color.Transparent;
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(3, 0);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(74, 63);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 189;
+            pictureBox4.TabStop = false;
             // 
             // SuppliersList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.CadetBlue;
+            BackColor = Color.FromArgb(237, 242, 239);
             ClientSize = new Size(1367, 770);
+            Controls.Add(panel1);
             Controls.Add(label5);
             Controls.Add(cmbStatus);
             Controls.Add(btnFilter);
@@ -386,23 +471,28 @@
             Controls.Add(dtpFrom);
             Controls.Add(btnClose);
             Controls.Add(label2);
-            Controls.Add(label1);
             Controls.Add(btnExport);
             Controls.Add(btnAdd);
             Controls.Add(txtSearch);
             Controls.Add(lblSearch);
             Controls.Add(dataGridView1);
-            Controls.Add(pictureBox2);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "SuppliersList";
+            SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Suppliers List";
-            WindowState = FormWindowState.Maximized;
             Load += SuppliersList_Load;
             KeyDown += SuppliersList_KeyDown;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)supplierDetailsBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -415,8 +505,6 @@
         private Label lblSearch;
         private DataGridView dataGridView1;
         private BindingSource supplierDetailsBindingSource;
-        private PictureBox pictureBox2;
-        private Label label1;
         private Label label2;
         private Button btnClose;
         private DateTimePicker dtpFrom;
@@ -439,5 +527,12 @@
         private DataGridViewTextBoxColumn is_active;
         private DataGridViewTextBoxColumn created_at;
         private DataGridViewButtonColumn edit;
+        private Panel panel1;
+        private Label label1;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Label lblTime;
+        private Label lblDate;
+        private Label label8;
+        private PictureBox pictureBox4;
     }
 }
