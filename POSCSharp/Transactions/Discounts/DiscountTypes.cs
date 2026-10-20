@@ -71,14 +71,12 @@ namespace PAKOPointOfSale.Transactions.Discounts
         {
             if (cmbDiscountTypes.SelectedItem?.ToString() == "Regular Discount")
             {
-                this.Size = new Size(341, 190);
-                panel1.Location = new Point(12, 107);
+                panel1.Location = new Point(131, 184);
                 num_customDiscount.Focus();
             }
             else
             {
-                this.Size = new Size(341, 166);
-                panel1.Location = new Point(12, 78);
+                panel1.Location = new Point(131, 148);
             }
         }
 
@@ -89,6 +87,11 @@ namespace PAKOPointOfSale.Transactions.Discounts
                 this.Close(); // Hide the current form
                 e.Handled = true; // Prevent further processing of the key event
             }
+        }
+
+        private void num_customDiscount_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

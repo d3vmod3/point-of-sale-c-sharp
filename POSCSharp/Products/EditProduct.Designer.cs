@@ -210,7 +210,7 @@
             // 
             btnSubmit.BackColor = Color.FromArgb(33, 39, 56);
             btnSubmit.FlatStyle = FlatStyle.Popup;
-            btnSubmit.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnSubmit.Font = new Font("Roboto", 9.75F);
             btnSubmit.ForeColor = Color.FromArgb(237, 242, 239);
             btnSubmit.Location = new Point(1132, 679);
             btnSubmit.Name = "btnSubmit";
@@ -422,7 +422,7 @@
             // 
             btnClose.BackColor = Color.FromArgb(249, 112, 104);
             btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnClose.Font = new Font("Roboto", 9.75F);
             btnClose.ForeColor = Color.FromArgb(237, 242, 239);
             btnClose.Location = new Point(1224, 679);
             btnClose.Name = "btnClose";
