@@ -130,7 +130,7 @@ namespace PAKOPointOfSale.Transactions
             dgvItems.Name = "dgvItems";
             dgvItems.RowHeadersVisible = false;
             dgvItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvItems.Size = new Size(1063, 623);
+            dgvItems.Size = new Size(1063, 640);
             dgvItems.TabIndex = 1;
             dgvItems.CellContentClick += dgvItems_CellContentClick;
             // 
@@ -492,7 +492,7 @@ namespace PAKOPointOfSale.Transactions
             receiptPreview.DefaultBackgroundColor = Color.White;
             receiptPreview.Location = new Point(1083, 175);
             receiptPreview.Name = "receiptPreview";
-            receiptPreview.Size = new Size(277, 566);
+            receiptPreview.Size = new Size(277, 583);
             receiptPreview.TabIndex = 197;
             receiptPreview.ZoomFactor = 1D;
             // 
