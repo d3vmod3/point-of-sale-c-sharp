@@ -9,6 +9,7 @@ using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace PAKOPointOfSale.Transactions
 {
@@ -18,6 +19,8 @@ namespace PAKOPointOfSale.Transactions
         private string _invoiceNumber;
         private int countAlreadyReturneditems = 0;
         private string adjustment_number = "";
+        private string transactionType = "";
+        private int transactionId;
         public lbViewTransaction(int id)
         {
             _id = id;
@@ -28,7 +31,64 @@ namespace PAKOPointOfSale.Transactions
         private void ViewTransaction_Load(object sender, EventArgs e)
         {
             LoadTransactionDetails();
+            LoadReceiptPreview();
             validateData();
+        }
+
+        private async void LoadReceiptPreview()
+        {
+            if (transactionType == "Void")
+            {
+                await receiptPreview.EnsureCoreWebView2Async();
+                //view void receipt
+                string appPath = Application.StartupPath;
+                string pdfPath = Path.Combine(appPath, $"Void_{adjustment_number}.pdf");
+                if (File.Exists(pdfPath))
+                {
+                    // WebView2 requires a valid URI to navigate
+                    receiptPreview.CoreWebView2.Navigate(new Uri(pdfPath).AbsoluteUri);
+                }
+                else
+                {
+                    MessageBox.Show("Void Receipt file not found!");
+                }
+
+
+            }
+            if (transactionType == "Return")
+            {
+                await receiptPreview.EnsureCoreWebView2Async();
+                //view return receipt
+                string appPath = Application.StartupPath;
+                string pdfPath = Path.Combine(appPath, $"Return_{adjustment_number}.pdf");
+                if (File.Exists(pdfPath))
+                {
+                    // WebView2 requires a valid URI to navigate
+                    receiptPreview.CoreWebView2.Navigate(new Uri(pdfPath).AbsoluteUri);
+                }
+                else
+                {
+                    MessageBox.Show("Return Receipt file not found!");
+                }
+
+            }
+            if (transactionType == "Sales Invoice")
+            {
+                await receiptPreview.EnsureCoreWebView2Async();
+                //view sales invoice receipt
+                string appPath = Application.StartupPath;
+                string pdfPath = Path.Combine(appPath, $"Receipt_{_invoiceNumber}.pdf");
+                if (File.Exists(pdfPath))
+                {
+                    // WebView2 requires a valid URI to navigate
+                    receiptPreview.CoreWebView2.Navigate(new Uri(pdfPath).AbsoluteUri);
+                }
+                else
+                {
+                    MessageBox.Show("Sales Invoice Receipt file not found!");
+                }
+
+            }
         }
         private void LoadTransactionDetails()
         {
@@ -59,23 +119,24 @@ namespace PAKOPointOfSale.Transactions
                         if (reader.Read())
                         {
                             _invoiceNumber = reader["invoice_number"].ToString();
-                            int transactionId = Convert.ToInt32(reader["id"]);
-                            lblTransactionId.Text = transactionId.ToString().PadLeft(6, '0');
-                            lblInvoiceNumber.Text = reader["invoice_number"].ToString();
-                            lblSubTotal.Text = N2(reader["sub_total"]);
-                            lblGrandTotal.Text = N2(reader["grand_total"]);
-                            lblVatableSales.Text = N2(reader["vat_amount"]);
-                            lblVatAmount.Text = N2(reader["vat_amount"]);
-                            lblVatExempt.Text = N2(reader["vat_exempt"]);
-                            lblPaymentMethod.Text = reader["payment_method"].ToString();
-                            lblCashReceived.Text = N2(reader["cash_received"]);
-                            lblTransactionType.Text = reader["transaction_type"].ToString();
-                            lblChange.Text = N2(reader["cash_change"]);
-                            lblTransactionDate.Text = Convert.ToDateTime(reader["created_at"]).ToString("yyyy-MM-dd HH:mm");
+                            transactionId = Convert.ToInt32(reader["id"]);
+                            //lblTransactionId.Text = transactionId.ToString().PadLeft(6, '0');
+                            //lblInvoiceNumber.Text = reader["invoice_number"].ToString();
+                            //lblSubTotal.Text = N2(reader["sub_total"]);
+                            //lblGrandTotal.Text = N2(reader["grand_total"]);
+                            //lblVatableSales.Text = N2(reader["vat_amount"]);
+                            //lblVatAmount.Text = N2(reader["vat_amount"]);
+                            //lblVatExempt.Text = N2(reader["vat_exempt"]);
+                            //lblPaymentMethod.Text = reader["payment_method"].ToString();
+                            //lblCashReceived.Text = N2(reader["cash_received"]);
+                            //lblCashReceived.Text = N2(reader["cash_received"]);
+                            //lblTransactionType.Text = reader["transaction_type"].ToString();
+                            transactionType = reader["transaction_type"].ToString() ?? "";
+
                         }
                     }
                 }
-                string query = queryString(lblTransactionType.Text);
+                string query = queryString(transactionType);
                 // Load transaction items
                 using (var cmdItems = new SqlCommand(query, conn))
                 {
@@ -104,7 +165,7 @@ namespace PAKOPointOfSale.Transactions
                         INNER JOIN ReturnTransactions rt ON si.return_transaction_id = rt.id
                         WHERE rt.invoice_number = @invoiceNumber", conn))
                     {
-                        cmd.Parameters.AddWithValue("@invoiceNumber", lblInvoiceNumber.Text);
+                        cmd.Parameters.AddWithValue("@invoiceNumber", _invoiceNumber);
 
                         using (var reader = cmd.ExecuteReader())
                         {
@@ -157,24 +218,19 @@ namespace PAKOPointOfSale.Transactions
 
 
                 // Load void or return series number
-                string transactionType = lblTransactionType.Text;
+                //string transactionType = lblTransactionType.Text;
 
                 if (transactionType == "Void" || transactionType == "Sales Invoice")
                 {
 
                     using (var cmdVoid = new SqlCommand("SELECT void_number, invoice_number, transaction_id FROM VoidTransactions WHERE invoice_number = @invoiceNumber", conn))
                     {
-                        cmdVoid.Parameters.AddWithValue("@invoiceNumber", lblInvoiceNumber.Text);
-                        lblAdjustmentNumber.Text = "";
+                        cmdVoid.Parameters.AddWithValue("@invoiceNumber", _invoiceNumber);
                         using (var reader = cmdVoid.ExecuteReader())
                         {
                             if (reader.Read())
                             {
-                                lblVoidOrReturn.Visible = true;
-                                lblAdjustmentNumber.Visible = true;
-                                lblVoidOrReturn.Text = "Void No.: ";
-                                lblAdjustmentNumber.Text = reader["void_number"].ToString();
-                                adjustment_number = reader["void_number"].ToString();
+                                adjustment_number = reader["void_number"].ToString() ?? "";
                                 cmbInvoiceAction.SelectedItem = "Void";
                                 cmbInvoiceAction.Enabled = false;
                                 btnProceed.Enabled = false;
@@ -183,8 +239,6 @@ namespace PAKOPointOfSale.Transactions
                             }
                             else
                             {
-                                lblVoidOrReturn.Visible = false;
-                                lblAdjustmentNumber.Visible = false;
                                 cmbInvoiceAction.SelectedItem = "";
                                 cmbInvoiceAction.Enabled = true;
                                 btnProceed.Enabled = true;
@@ -199,9 +253,8 @@ namespace PAKOPointOfSale.Transactions
 
                     using (var cmdReturn = new SqlCommand("SELECT TOP 1 * FROM ReturnTransactions WHERE invoice_number = @invoiceNumber and transaction_id=@transactionId  ORDER BY id DESC", conn))
                     {
-                        cmdReturn.Parameters.AddWithValue("@invoiceNumber", lblInvoiceNumber.Text);
-                        cmdReturn.Parameters.AddWithValue("@transactionId", lblTransactionId.Text);
-                        lblAdjustmentNumber.Text = "";
+                        cmdReturn.Parameters.AddWithValue("@invoiceNumber", _invoiceNumber);
+                        cmdReturn.Parameters.AddWithValue("@transactionId", transactionId);
 
                         using (var reader = cmdReturn.ExecuteReader())
                         {
@@ -223,12 +276,8 @@ namespace PAKOPointOfSale.Transactions
 
                                 if (allGray)
                                 {
-                                    lblVoidOrReturn.Visible = true;
-                                    lblAdjustmentNumber.Visible = true;
-                                    lblVoidOrReturn.Text = "Return No.: ";
-                                    lblAdjustmentNumber.Text = reader["return_number"].ToString();
                                     btnViewReason.Visible = true;
-                                    adjustment_number = reader["return_number"].ToString();
+                                    adjustment_number = reader["return_number"].ToString() ?? "";
                                     cmbInvoiceAction.SelectedItem = "Return";
                                     //cmbInvoiceAction.Enabled = false;
                                     btnProceed.Enabled = false;
@@ -236,12 +285,7 @@ namespace PAKOPointOfSale.Transactions
                                 }
                                 else
                                 {
-                                    lblVoidOrReturn.Visible = true;
-                                    btnViewReason.Visible = true;
-                                    lblAdjustmentNumber.Visible = true;
-                                    lblVoidOrReturn.Text = "Return No.: ";
-                                    lblAdjustmentNumber.Text = reader["return_number"].ToString();
-                                    adjustment_number = reader["return_number"].ToString();
+                                    adjustment_number = reader["return_number"].ToString() ?? "";
                                     cmbInvoiceAction.SelectedItem = "Return";
                                     //cmbInvoiceAction.Enabled = false;
                                     btnProceed.Enabled = false;
@@ -253,8 +297,6 @@ namespace PAKOPointOfSale.Transactions
                             }
                             else
                             {
-                                lblVoidOrReturn.Visible = false;
-                                lblAdjustmentNumber.Visible = false;
                                 cmbInvoiceAction.SelectedItem = "";
                                 cmbInvoiceAction.Enabled = true;
                                 btnProceed.Enabled = true;
@@ -280,14 +322,14 @@ namespace PAKOPointOfSale.Transactions
 
         private void validateData()
         {
-            if (lblTransactionType.Text == "Void")
+            if (transactionType == "Void")
             {
                 cmbInvoiceAction.SelectedItem = "Void";
                 cmbInvoiceAction.Enabled = false;
                 btnProceed.Enabled = false;
 
             }
-            if (lblTransactionType.Text == "Return")
+            if (transactionType == "Return")
             {
                 cmbInvoiceAction.SelectedItem = "Return";
                 cmbInvoiceAction.Enabled = false;
@@ -313,7 +355,7 @@ namespace PAKOPointOfSale.Transactions
                         description: "Clicked Proceed button",
                         payload: new
                         {
-                            transaction_id = lblTransactionId.Text,
+                            transaction_id = transactionId,
                             transaction_type = cmbInvoiceAction.SelectedItem?.ToString(),
                             status = "failed",
                             message = "Sales invoices with returned items cannot be voided. Select all items and use 'Return' in the Invoice Action."
@@ -331,7 +373,7 @@ namespace PAKOPointOfSale.Transactions
                         description: "Clicked Proceed Button button",
                         payload: new
                         {
-                            transaction_id = lblTransactionId.Text,
+                            transaction_id = transactionId,
                             transaction_type = cmbInvoiceAction.SelectedItem?.ToString(),
                             status = "success",
                         }
@@ -391,7 +433,7 @@ namespace PAKOPointOfSale.Transactions
                 {
               
                 }
-                if (lblVoidOrReturn.Text == "Return No.: ")
+                if (transactionType == "Return")
                 {
                     dgvItems.Columns["remainingQty"].Visible = false;
                     dgvItems.Columns["quantity"].HeaderText = "Returned Quantity";
@@ -494,7 +536,7 @@ namespace PAKOPointOfSale.Transactions
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (lblTransactionType.Text == "Void")
+            if (transactionType == "Void")
             {
                 //view void receipt
                 string appPath = Application.StartupPath;
@@ -512,13 +554,13 @@ namespace PAKOPointOfSale.Transactions
                     payload: new
                     {
                         trnsaction_type = "void",
-                        invoice_number = lblInvoiceNumber.Text,
+                        invoice_number = _invoiceNumber,
                     }
                 );
 
 
             }
-            if (lblTransactionType.Text == "Return")
+            if (transactionType == "Return")
             {
                 //view return receipt
                 string appPath = Application.StartupPath;
@@ -536,16 +578,16 @@ namespace PAKOPointOfSale.Transactions
                     payload: new
                     {
                         trnsaction_type = "return",
-                        invoice_number = lblInvoiceNumber.Text,
+                        invoice_number = _invoiceNumber
                     }
                 );
 
             }
-            if (lblTransactionType.Text == "Sales Invoice")
+            if (transactionType == "Sales Invoice")
             {
                 //view Sales Invoice receipt
                 string appPath = Application.StartupPath;
-                string pdfPath = Path.Combine(appPath, $"Receipt_{lblInvoiceNumber.Text}.pdf");
+                string pdfPath = Path.Combine(appPath, $"Receipt_{_invoiceNumber}.pdf");
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
                 {
                     FileName = pdfPath,
@@ -559,7 +601,7 @@ namespace PAKOPointOfSale.Transactions
                     payload: new
                     {
                         trnsaction_type = "sales invoice",
-                        invoice_number = lblInvoiceNumber.Text,
+                        invoice_number = _invoiceNumber,
                     }
                 );
 
@@ -588,7 +630,7 @@ namespace PAKOPointOfSale.Transactions
 
         private void btnViewReason_Click(object sender, EventArgs e)
         {
-            Transactions.ViewAdjustmentReason viewReasonForm = new Transactions.ViewAdjustmentReason(Convert.ToInt32(lblTransactionId.Text), lblInvoiceNumber.Text, lblTransactionType.Text);
+            Transactions.ViewAdjustmentReason viewReasonForm = new Transactions.ViewAdjustmentReason(Convert.ToInt32(transactionType), _invoiceNumber, transactionType);
             ActivityLogs.Log(
                 user: LoggedInUser.FullName,
                 action: "click",
@@ -596,9 +638,9 @@ namespace PAKOPointOfSale.Transactions
                 description: "Clicked View Reason button",
                 payload: new
                 {
-                    transaction_type = lblTransactionType.Text,
-                    transaction_id = lblTransactionId.Text,
-                    invoice_number = lblInvoiceNumber.Text,
+                    transaction_type = transactionType,
+                    transaction_id = transactionId,
+                    invoice_number = _invoiceNumber,
                 }
             );
             viewReasonForm.ShowDialog();

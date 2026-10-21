@@ -47,12 +47,12 @@ namespace PAKOPointOfSale.Transactions
                         {
                             if (reader.Read())
                             {
-                                lblProductName.Text = reader["product_name"].ToString();
-                                lblProductBrand.Text = reader["product_brand"].ToString();
-                                lblCurrentQtyValue.Text = reader["quantity"].ToString();
-                                lblUOM.Text = reader["unit_of_measurement"].ToString();
-                                lblCategory.Text = reader["category"].ToString();
-                                lblUnitPrice.Text = Convert.ToDecimal(reader["unit_price"]).ToString("N2");
+                                txtProductName.Text = reader["product_name"].ToString();
+                                txtProductBrand.Text = reader["product_brand"].ToString();
+                                txtCurrentQuantity.Text = reader["quantity"].ToString();
+                                txtUom.Text = reader["unit_of_measurement"].ToString();
+                                txtCategory.Text = reader["category"].ToString();
+                                txtUnitPrice.Text = Convert.ToDecimal(reader["unit_price"]).ToString("N2");
                             }
                             else
                             {
@@ -74,17 +74,17 @@ namespace PAKOPointOfSale.Transactions
             try
             {
                 int product_id = _productId;
-                string product = lblProductName.Text;
-                string brand = lblProductBrand.Text;
-                string unit = lblUOM.Text;
-                decimal price = decimal.Parse(lblUnitPrice.Text);
-                string category = lblCategory.Text;
+                string product = txtProductName.Text;
+                string brand = txtProductBrand.Text;
+                string unit = txtUom.Text;
+                decimal price = decimal.Parse(txtUnitPrice.Text);
+                string category = txtCategory.Text;
 
                 // Get the applied quantity from numeric up-down
                 decimal appliedQty = num_AppliedQty.Value;
 
                 // Get current stock quantity from your product model
-                decimal currentStock = Convert.ToDecimal(lblCurrentQtyValue.Text); // assuming you have Product object loaded as _currentProduct
+                decimal currentStock = Convert.ToDecimal(txtCurrentQuantity.Text); // assuming you have Product object loaded as _currentProduct
 
                 if (appliedQty > currentStock)
                 {
@@ -139,11 +139,11 @@ namespace PAKOPointOfSale.Transactions
                 description: "Double clicked an item",
                 payload: new
                 {
-                    product = lblProductName.Text,
-                    brand = lblProductBrand.Text,
+                    product = txtProductName.Text,
+                    brand = txtProductBrand.Text,
                     quantity = num_AppliedQty.Value.ToString(),
-                    unit_price = lblUnitPrice.Text,
-                    category = lblCategory.Text,
+                    unit_price = txtUnitPrice.Text,
+                    category = txtCategory.Text,
                 }
             );
             this.Close();

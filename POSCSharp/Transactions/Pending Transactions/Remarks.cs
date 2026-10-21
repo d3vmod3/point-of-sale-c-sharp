@@ -33,7 +33,7 @@ namespace PAKOPointOfSale.Transactions.Parked_Transactions
                 user: LoggedInUser.FullName,
                 action: "click",
                 module: "Pending Transaction > Set Remarks",
-                description: "Pending Transaction > Set Remarks > Clicked Pending button",
+                description: "Clicked Pending button",
                 payload: new
                 {
                     remarks = txtRemarks.Text
@@ -49,8 +49,8 @@ namespace PAKOPointOfSale.Transactions.Parked_Transactions
             ActivityLogs.Log(
                 user: LoggedInUser.FullName,
                 action: "click",
-                module: "Pending Transaction",
-                description: "Pending Transaction > Set Remarks > Clicked Cancel button",
+                module: "Pending Transaction > Set Remarks",
+                description: "Clicked Cancel button",
                 payload: null
             );
             this.DialogResult = DialogResult.Cancel;

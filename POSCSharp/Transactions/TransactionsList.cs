@@ -94,8 +94,8 @@ namespace PAKOPointOfSale.Transactions
                 cmbTransactionType.SelectedIndex = 0;
                 DataGridViewButtonColumn c = (DataGridViewButtonColumn)dtgvTransactions.Columns["viewInvoice"];
                 c.FlatStyle = FlatStyle.Flat;
-                c.DefaultCellStyle.ForeColor = Color.White;
-                c.DefaultCellStyle.BackColor = Color.LightBlue;
+                c.DefaultCellStyle.ForeColor = Color.Black;
+                c.DefaultCellStyle.BackColor = Color.FromArgb(87, 196, 229);
                 dtgvTransactions.Columns["cash_change"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dtgvTransactions.Columns["sub_total"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dtgvTransactions.Columns["cash_received"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -329,8 +329,8 @@ namespace PAKOPointOfSale.Transactions
         {
             if (e.KeyCode == Keys.Escape)
             {
-                this.Close(); // Hide the current form
-                e.Handled = true; // Prevent further processing of the key event
+                this.Close();
+                e.Handled = true;
             }
         }
 
@@ -405,6 +405,18 @@ namespace PAKOPointOfSale.Transactions
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dtgvTransactions_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dtgvTransactions.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            {
+                dtgvTransactions.Cursor = Cursors.Hand;
+            }
+            else
+            {
+                dtgvTransactions.Cursor = Cursors.Default;
+            }
         }
     }
 }

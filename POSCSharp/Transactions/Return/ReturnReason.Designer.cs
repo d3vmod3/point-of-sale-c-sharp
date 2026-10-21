@@ -28,54 +28,74 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReturnReason));
             txtReason = new TextBox();
             label1 = new Label();
             btnSubmit = new Button();
+            btnCancel = new Button();
             SuspendLayout();
             // 
             // txtReason
             // 
-            txtReason.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtReason.Font = new Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtReason.Location = new Point(12, 46);
             txtReason.Multiline = true;
             txtReason.Name = "txtReason";
-            txtReason.Size = new Size(408, 148);
+            txtReason.Size = new Size(431, 107);
             txtReason.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(21, 17);
+            label1.Font = new Font("Roboto", 9.75F);
+            label1.Location = new Point(12, 16);
             label1.Name = "label1";
-            label1.Size = new Size(387, 17);
+            label1.Size = new Size(355, 15);
             label1.TabIndex = 1;
             label1.Text = "Please indicate the reason why you want to return the item(s).";
             // 
             // btnSubmit
             // 
-            btnSubmit.BackColor = Color.SeaGreen;
+            btnSubmit.BackColor = Color.FromArgb(33, 39, 56);
             btnSubmit.FlatStyle = FlatStyle.Popup;
-            btnSubmit.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSubmit.ForeColor = Color.Black;
-            btnSubmit.Location = new Point(188, 200);
+            btnSubmit.Font = new Font("Roboto", 9.75F);
+            btnSubmit.ForeColor = Color.FromArgb(237, 242, 239);
+            btnSubmit.Location = new Point(287, 159);
             btnSubmit.Name = "btnSubmit";
-            btnSubmit.Size = new Size(75, 23);
+            btnSubmit.Size = new Size(75, 31);
             btnSubmit.TabIndex = 2;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = false;
             btnSubmit.Click += btnSubmit_Click;
             // 
+            // btnCancel
+            // 
+            btnCancel.BackColor = Color.FromArgb(249, 112, 104);
+            btnCancel.FlatStyle = FlatStyle.Popup;
+            btnCancel.Font = new Font("Roboto", 9.75F);
+            btnCancel.ForeColor = Color.FromArgb(237, 242, 239);
+            btnCancel.Location = new Point(368, 159);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(75, 31);
+            btnCancel.TabIndex = 4;
+            btnCancel.Text = "Cancel";
+            btnCancel.UseVisualStyleBackColor = false;
+            btnCancel.Click += btnCancel_Click;
+            // 
             // ReturnReason
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.CadetBlue;
-            ClientSize = new Size(432, 238);
+            BackColor = Color.FromArgb(237, 242, 239);
+            ClientSize = new Size(455, 202);
+            Controls.Add(btnCancel);
             Controls.Add(btnSubmit);
             Controls.Add(label1);
             Controls.Add(txtReason);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "ReturnReason";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Return Reason";
@@ -90,5 +110,6 @@
         private TextBox txtReason;
         private Label label1;
         private Button btnSubmit;
+        private Button btnCancel;
     }
 }

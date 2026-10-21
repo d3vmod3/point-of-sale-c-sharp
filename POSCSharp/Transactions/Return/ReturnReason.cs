@@ -26,8 +26,8 @@ namespace PAKOPointOfSale.Transactions.Return
             ActivityLogs.Log(
                 user: LoggedInUser.FullName,
                 action: "click",
-                module: "Action Confirmation",
-                description: "Clicked Close button",
+                module: "Return",
+                description: "Clicked Submit button",
                 payload: null
             );
             this.Close();
@@ -45,6 +45,19 @@ namespace PAKOPointOfSale.Transactions.Return
                 this.Close(); // Hide the current form
                 e.Handled = true; // Prevent further processing of the key event
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Return > Return Reason",
+                description: "Clicked Cancel button",
+                payload: null
+            );
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }

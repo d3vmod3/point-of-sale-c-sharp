@@ -34,13 +34,11 @@
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchProduct));
             label1 = new Label();
             txtSearch = new TextBox();
             productBindingSource = new BindingSource(components);
             dataGridView1 = new DataGridView();
-            pictureBox2 = new PictureBox();
-            lblsearchproduct = new Label();
-            button1 = new Button();
             product_name = new DataGridViewTextBoxColumn();
             addToCart = new DataGridViewButtonColumn();
             id = new DataGridViewTextBoxColumn();
@@ -55,9 +53,19 @@
             statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             datereceivedDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             dateexpirationDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            button1 = new Button();
+            panel1 = new Panel();
+            label2 = new Label();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            lblTime = new Label();
+            lblDate = new Label();
+            label8 = new Label();
+            pictureBox4 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panel1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -65,16 +73,16 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.FlatStyle = FlatStyle.Popup;
-            label1.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 102);
+            label1.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
+            label1.Location = new Point(12, 92);
             label1.Name = "label1";
-            label1.Size = new Size(117, 20);
+            label1.Size = new Size(100, 15);
             label1.TabIndex = 3;
             label1.Text = "Search Product:";
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(135, 98);
+            txtSearch.Location = new Point(118, 84);
             txtSearch.MaxLength = 60;
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(327, 23);
@@ -91,9 +99,10 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = Color.FromArgb(237, 242, 239);
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
@@ -104,13 +113,13 @@
             dataGridView1.DataSource = productBindingSource;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
             dataGridViewCellStyle4.ForeColor = Color.Black;
             dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
-            dataGridView1.Location = new Point(12, 126);
+            dataGridView1.Location = new Point(12, 113);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
@@ -121,43 +130,6 @@
             dataGridView1.TabIndex = 3;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
-            
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.DimGray;
-            pictureBox2.Location = new Point(-1, -1);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1371, 90);
-            pictureBox2.TabIndex = 112;
-            pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
-            // 
-            // lblsearchproduct
-            // 
-            lblsearchproduct.AutoSize = true;
-            lblsearchproduct.BackColor = Color.DimGray;
-            lblsearchproduct.Font = new Font("Impact", 39.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblsearchproduct.ForeColor = Color.White;
-            lblsearchproduct.Location = new Point(497, 9);
-            lblsearchproduct.Name = "lblsearchproduct";
-            lblsearchproduct.Size = new Size(396, 65);
-            lblsearchproduct.TabIndex = 114;
-            lblsearchproduct.Text = "SEARCH PRODUCT";
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Red;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.Black;
-            button1.Location = new Point(1279, 96);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 26);
-            button1.TabIndex = 152;
-            button1.Text = "Close";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
             // 
             // product_name
             // 
@@ -267,29 +239,138 @@
             dateexpirationDataGridViewTextBoxColumn.Name = "dateexpirationDataGridViewTextBoxColumn";
             dateexpirationDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(249, 112, 104);
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.Font = new Font("Roboto", 9.75F);
+            button1.ForeColor = Color.FromArgb(237, 242, 239);
+            button1.Location = new Point(1277, 751);
+            button1.Name = "button1";
+            button1.Size = new Size(81, 26);
+            button1.TabIndex = 152;
+            button1.Text = "Close";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(33, 39, 56);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(tableLayoutPanel1);
+            panel1.Controls.Add(label8);
+            panel1.Controls.Add(pictureBox4);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1368, 69);
+            panel1.TabIndex = 196;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Roboto", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(237, 242, 239);
+            label2.Location = new Point(587, 12);
+            label2.Name = "label2";
+            label2.Size = new Size(319, 42);
+            label2.TabIndex = 194;
+            label2.Text = "SEARCH PRODUCT";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(lblTime, 0, 1);
+            tableLayoutPanel1.Controls.Add(lblDate, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Right;
+            tableLayoutPanel1.Location = new Point(1168, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(200, 69);
+            tableLayoutPanel1.TabIndex = 192;
+            // 
+            // lblTime
+            // 
+            lblTime.Anchor = AnchorStyles.Right;
+            lblTime.AutoSize = true;
+            lblTime.BackColor = Color.Transparent;
+            lblTime.Font = new Font("Roboto", 11.25F);
+            lblTime.ForeColor = Color.White;
+            lblTime.Location = new Point(109, 42);
+            lblTime.Name = "lblTime";
+            lblTime.Size = new Size(88, 18);
+            lblTime.TabIndex = 160;
+            lblTime.Text = "hh:mm:ss tt";
+            // 
+            // lblDate
+            // 
+            lblDate.Anchor = AnchorStyles.Right;
+            lblDate.AutoSize = true;
+            lblDate.BackColor = Color.Transparent;
+            lblDate.Font = new Font("Roboto", 11.25F);
+            lblDate.ForeColor = Color.White;
+            lblDate.Location = new Point(95, 8);
+            lblDate.Name = "lblDate";
+            lblDate.Size = new Size(102, 18);
+            lblDate.TabIndex = 159;
+            lblDate.Text = "MM/DD/YYYY";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BackColor = Color.Transparent;
+            label8.Font = new Font("Roboto", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.FromArgb(237, 242, 239);
+            label8.Location = new Point(62, 12);
+            label8.Name = "label8";
+            label8.Size = new Size(127, 42);
+            label8.TabIndex = 191;
+            label8.Text = "ATPOS";
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.BackColor = Color.Transparent;
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(3, 0);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(74, 63);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 189;
+            pictureBox4.TabStop = false;
+            // 
             // SearchProduct
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.CadetBlue;
-            ClientSize = new Size(1370, 770);
+            BackColor = Color.FromArgb(237, 242, 239);
+            ClientSize = new Size(1368, 788);
+            Controls.Add(panel1);
             Controls.Add(button1);
-            Controls.Add(lblsearchproduct);
-            Controls.Add(pictureBox2);
             Controls.Add(dataGridView1);
             Controls.Add(label1);
             Controls.Add(txtSearch);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "SearchProduct";
+            SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "SearchProduct";
-            WindowState = FormWindowState.Maximized;
+            Text = "Search Product";
             Load += SearchProduct_Load;
             KeyDown += SearchProduct_KeyDown;
             KeyPress += SearchProduct_KeyPress;
             ((System.ComponentModel.ISupportInitialize)productBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -301,8 +382,6 @@
         private BindingSource productBindingSource;
         private DataGridViewTextBoxColumn productbrandDataGridViewTextBoxColumn;
         private DataGridView dataGridView1;
-        private PictureBox pictureBox2;
-        private Label lblsearchproduct;
         private DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn supplierDataGridViewTextBoxColumn;
         public Button button1;
@@ -320,5 +399,12 @@
         private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn datereceivedDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dateexpirationDataGridViewTextBoxColumn;
+        private Panel panel1;
+        private Label label2;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Label lblTime;
+        private Label lblDate;
+        private Label label8;
+        private PictureBox pictureBox4;
     }
 }

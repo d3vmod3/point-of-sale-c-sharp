@@ -46,7 +46,7 @@
             btnClearFilter = new Button();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             checkedListBox1 = new CheckedListBox();
-            dataGridView1 = new DataGridView();
+            dgvProducts = new DataGridView();
             id = new DataGridViewTextBoxColumn();
             barcode = new DataGridViewTextBoxColumn();
             product_name = new DataGridViewLinkColumn();
@@ -76,7 +76,7 @@
             label8 = new Label();
             pictureBox4 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -113,7 +113,7 @@
             btnAdd.FlatStyle = FlatStyle.Popup;
             btnAdd.Font = new Font("Roboto", 9.75F);
             btnAdd.ForeColor = Color.FromArgb(237, 242, 239);
-            btnAdd.Location = new Point(1091, 91);
+            btnAdd.Location = new Point(1090, 150);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(83, 26);
             btnAdd.TabIndex = 3;
@@ -127,7 +127,7 @@
             btnExport.FlatStyle = FlatStyle.Flat;
             btnExport.Font = new Font("Roboto", 9.75F);
             btnExport.ForeColor = Color.Black;
-            btnExport.Location = new Point(1181, 91);
+            btnExport.Location = new Point(1180, 150);
             btnExport.Name = "btnExport";
             btnExport.Size = new Size(87, 26);
             btnExport.TabIndex = 5;
@@ -141,7 +141,7 @@
             btnClose.FlatStyle = FlatStyle.Popup;
             btnClose.Font = new Font("Roboto", 9.75F);
             btnClose.ForeColor = Color.FromArgb(237, 242, 239);
-            btnClose.Location = new Point(1275, 91);
+            btnClose.Location = new Point(1274, 150);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(81, 26);
             btnClose.TabIndex = 11;
@@ -213,15 +213,16 @@
             checkedListBox1.ItemCheck += checkedListBox1_ItemCheck;
             checkedListBox1.SelectedIndexChanged += checkedListBox1_SelectedIndexChanged;
             // 
-            // dataGridView1
+            // dgvProducts
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridView1.BackgroundColor = Color.FromArgb(237, 242, 239);
-            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dgvProducts.AllowUserToAddRows = false;
+            dgvProducts.AllowUserToDeleteRows = false;
+            dgvProducts.AutoGenerateColumns = false;
+            dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvProducts.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvProducts.BackgroundColor = Color.FromArgb(237, 242, 239);
+            dgvProducts.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            dgvProducts.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -229,29 +230,30 @@
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, barcode, product_name, productbrandDataGridViewTextBoxColumn, category_name, supplier_name, productdescriptionDataGridViewTextBoxColumn, productcodeDataGridViewTextBoxColumn, skuDataGridViewTextBoxColumn, quantity, unitofmeasurementDataGridViewTextBoxColumn, cost_price, unit_price, remarksDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, datereceivedDataGridViewTextBoxColumn, dateexpirationDataGridViewTextBoxColumn, is_active, createdatDataGridViewTextBoxColumn, edit });
-            dataGridView1.DataSource = productBindingSource;
+            dgvProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProducts.Columns.AddRange(new DataGridViewColumn[] { id, barcode, product_name, productbrandDataGridViewTextBoxColumn, category_name, supplier_name, productdescriptionDataGridViewTextBoxColumn, productcodeDataGridViewTextBoxColumn, skuDataGridViewTextBoxColumn, quantity, unitofmeasurementDataGridViewTextBoxColumn, cost_price, unit_price, remarksDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, datereceivedDataGridViewTextBoxColumn, dateexpirationDataGridViewTextBoxColumn, is_active, createdatDataGridViewTextBoxColumn, edit });
+            dgvProducts.DataSource = productBindingSource;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.Font = new Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            dataGridView1.GridColor = Color.Black;
-            dataGridView1.Location = new Point(12, 182);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersVisible = false;
+            dgvProducts.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvProducts.GridColor = Color.Black;
+            dgvProducts.Location = new Point(12, 182);
+            dgvProducts.Name = "dgvProducts";
+            dgvProducts.ReadOnly = true;
+            dgvProducts.RowHeadersVisible = false;
             dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(1344, 594);
-            dataGridView1.TabIndex = 3;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            dgvProducts.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dgvProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvProducts.Size = new Size(1344, 594);
+            dgvProducts.TabIndex = 3;
+            dgvProducts.CellContentClick += dataGridView1_CellContentClick;
+            dgvProducts.CellMouseMove += dgvProducts_CellMouseMove;
             // 
             // id
             // 
@@ -539,7 +541,7 @@
             Controls.Add(lblSearch);
             Controls.Add(checkedListBox1);
             Controls.Add(label1);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvProducts);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
@@ -551,7 +553,7 @@
             Load += ProductsList_Load;
             KeyDown += ProductsList_KeyDown;
             ((System.ComponentModel.ISupportInitialize)productBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
@@ -581,7 +583,7 @@
         private DataGridViewTextBoxColumn costpriceDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn unitpriceDataGridViewTextBoxColumn;
         private CheckedListBox checkedListBox1;
-        private DataGridView dataGridView1;
+        private DataGridView dgvProducts;
         private Label label1;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn barcode;

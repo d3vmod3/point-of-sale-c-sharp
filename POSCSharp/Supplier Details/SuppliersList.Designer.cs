@@ -84,9 +84,9 @@
             btnExport.FlatStyle = FlatStyle.Popup;
             btnExport.Font = new Font("Roboto", 9.75F);
             btnExport.ForeColor = Color.Black;
-            btnExport.Location = new Point(1191, 111);
+            btnExport.Location = new Point(1179, 110);
             btnExport.Name = "btnExport";
-            btnExport.Size = new Size(79, 29);
+            btnExport.Size = new Size(85, 26);
             btnExport.TabIndex = 9;
             btnExport.Text = "Export";
             btnExport.UseVisualStyleBackColor = false;
@@ -98,9 +98,9 @@
             btnAdd.FlatStyle = FlatStyle.Popup;
             btnAdd.Font = new Font("Roboto", 9.75F);
             btnAdd.ForeColor = Color.FromArgb(237, 242, 239);
-            btnAdd.Location = new Point(1106, 112);
+            btnAdd.Location = new Point(1088, 110);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(79, 28);
+            btnAdd.Size = new Size(85, 26);
             btnAdd.TabIndex = 8;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = false;
@@ -145,22 +145,23 @@
             dataGridView1.DataSource = supplierDetailsBindingSource;
             dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle9.BackColor = SystemColors.Window;
-            dataGridViewCellStyle9.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
+            dataGridViewCellStyle9.Font = new Font("Roboto SemiBold", 9.75F);
             dataGridViewCellStyle9.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle9.WrapMode = DataGridViewTriState.False;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle9;
-            dataGridView1.Location = new Point(12, 147);
+            dataGridView1.Location = new Point(12, 143);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridViewCellStyle10.ForeColor = Color.Black;
             dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle10;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(1343, 611);
+            dataGridView1.Size = new Size(1343, 615);
             dataGridView1.TabIndex = 5;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            dataGridView1.CellMouseMove += dataGridView1_CellMouseMove;
             // 
             // id
             // 
@@ -271,9 +272,9 @@
             btnClose.FlatStyle = FlatStyle.Popup;
             btnClose.Font = new Font("Roboto", 9.75F);
             btnClose.ForeColor = Color.FromArgb(237, 242, 239);
-            btnClose.Location = new Point(1276, 111);
+            btnClose.Location = new Point(1270, 110);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(79, 29);
+            btnClose.Size = new Size(85, 26);
             btnClose.TabIndex = 149;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
@@ -321,7 +322,7 @@
             btnFilter.FlatStyle = FlatStyle.Popup;
             btnFilter.Font = new Font("Roboto", 9.75F);
             btnFilter.ForeColor = Color.FromArgb(237, 242, 239);
-            btnFilter.Location = new Point(899, 112);
+            btnFilter.Location = new Point(868, 112);
             btnFilter.Name = "btnFilter";
             btnFilter.Size = new Size(85, 26);
             btnFilter.TabIndex = 159;
@@ -335,7 +336,7 @@
             btnClearFilter.FlatStyle = FlatStyle.Popup;
             btnClearFilter.Font = new Font("Roboto", 9.75F);
             btnClearFilter.ForeColor = Color.Black;
-            btnClearFilter.Location = new Point(990, 112);
+            btnClearFilter.Location = new Point(959, 112);
             btnClearFilter.Name = "btnClearFilter";
             btnClearFilter.Size = new Size(88, 26);
             btnClearFilter.TabIndex = 158;
@@ -348,7 +349,7 @@
             cmbStatus.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
             cmbStatus.FormattingEnabled = true;
             cmbStatus.Items.AddRange(new object[] { "All", "Active", "Inactive" });
-            cmbStatus.Location = new Point(742, 113);
+            cmbStatus.Location = new Point(711, 114);
             cmbStatus.Name = "cmbStatus";
             cmbStatus.Size = new Size(151, 23);
             cmbStatus.TabIndex = 160;
@@ -357,11 +358,11 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
-            label5.Location = new Point(742, 98);
+            label5.Location = new Point(711, 96);
             label5.Name = "label5";
-            label5.Size = new Size(80, 15);
+            label5.Size = new Size(44, 15);
             label5.TabIndex = 161;
-            label5.Text = "Filter Status:";
+            label5.Text = "Status";
             // 
             // panel1
             // 

@@ -82,9 +82,9 @@ namespace PAKOPointOfSale.Products
             }
             if (!LoggedInUser.HasPermission("Products", "edit"))
             {
-                if (dataGridView1.Columns.Contains("edit"))
+                if (dgvProducts.Columns.Contains("edit"))
                 {
-                    dataGridView1.Columns["edit"].Visible = false;
+                    dgvProducts.Columns["edit"].Visible = false;
                 }
             }
 
@@ -100,49 +100,51 @@ namespace PAKOPointOfSale.Products
                     conn.Open();
 
                     string query = @"
-                SELECT 
-                    p.id,
-                    p.product_name,
-                    p.product_brand,
-                    p.barcode,
-                    p.product_description,
-                    p.product_code,
-                    p.sku,
-                    p.quantity,
-                    p.unit_of_measurement,
-                    FORMAT(p.cost_price, 'N2') AS cost_price ,
-                    FORMAT(p.unit_price, 'N2') AS unit_price ,
-                    p.remarks,
-                    p.status,
-                    p.date_received,
-                    p.date_expiration,
-                    p.created_at,
-                    p.is_active,
-                    ISNULL(s.name, 'Unknown') AS supplier_name,
-                    ISNULL(c.name, 'Unknown') AS category_name
-                FROM Products p
-                LEFT JOIN SupplierDetails s ON p.supplier_id = s.id
-                LEFT JOIN Categories c ON p.category_id = c.id
+                    SELECT 
+                        p.id,
+                        p.product_name,
+                        p.product_brand,
+                        p.barcode,
+                        p.product_description,
+                        p.product_code,
+                        p.sku,
+                        p.quantity,
+                        p.unit_of_measurement,
+                        FORMAT(p.cost_price, 'N2') AS cost_price ,
+                        FORMAT(p.unit_price, 'N2') AS unit_price ,
+                        p.remarks,
+                        p.status,
+                        p.date_received,
+                        p.date_expiration,
+                        p.created_at,
+                        p.is_active,
+                        ISNULL(s.name, 'Unknown') AS supplier_name,
+                        ISNULL(c.name, 'Unknown') AS category_name
+                    FROM Products p
+                    LEFT JOIN SupplierDetails s ON p.supplier_id = s.id
+                    LEFT JOIN Categories c ON p.category_id = c.id
 
-                ORDER BY p.created_at DESC;";
+                    ORDER BY p.created_at DESC;";
 
                     using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
                     {
                         productsTable = new DataTable();
                         adapter.Fill(productsTable);
-                        dataGridView1.DataSource = productsTable;
+                        dgvProducts.DataSource = productsTable;
                     }
 
                     // Optional: auto-size columns
-                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 }
-                DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["edit"];
+
+
+                DataGridViewButtonColumn c = (DataGridViewButtonColumn)dgvProducts.Columns["edit"];
                 c.FlatStyle = FlatStyle.Flat;
-                c.DefaultCellStyle.ForeColor = Color.White;
-                c.DefaultCellStyle.BackColor = Color.LightBlue;
-                               dataGridView1.Columns["unit_price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                                //dataGridView1.Columns["quantity"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                                dataGridView1.Columns["cost_price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                c.DefaultCellStyle.ForeColor = Color.Black;
+                c.DefaultCellStyle.BackColor = Color.FromArgb(87, 196, 229);
+                dgvProducts.Columns["unit_price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                //dataGridView1.Columns["quantity"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvProducts.Columns["cost_price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             }
             catch (Exception ex)
             {
@@ -155,9 +157,9 @@ namespace PAKOPointOfSale.Products
             if (e.RowIndex < 0) return; // ignore header clicks
 
             // Get the ID of the selected user
-            int productId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id"].Value);
+            int productId = Convert.ToInt32(dgvProducts.Rows[e.RowIndex].Cells["id"].Value);
 
-            if (e.ColumnIndex == dataGridView1.Columns["edit"].Index)
+            if (e.ColumnIndex == dgvProducts.Columns["edit"].Index)
             {
                 Products.EditProduct editProductForm = new Products.EditProduct(productId);
                 editProductForm.ShowDialog(); // modal so user finishes editing first
@@ -173,7 +175,7 @@ namespace PAKOPointOfSale.Products
             string filter = txtSearch.Text.Trim().Replace("'", "''"); // escape single quotes
             if (string.IsNullOrEmpty(filter))
             {
-                dataGridView1.DataSource = productsTable;
+                dgvProducts.DataSource = productsTable;
             }
             else
             {
@@ -181,7 +183,7 @@ namespace PAKOPointOfSale.Products
                 string rowFilter = $"product_name LIKE '%{filter}%' OR product_code LIKE '%{filter}%' OR sku LIKE '%{filter}%' OR product_brand LIKE '%{filter}%' OR barcode LIKE '%{filter}%'";
                 DataView dv = new DataView(productsTable);
                 dv.RowFilter = rowFilter;
-                dataGridView1.DataSource = dv;
+                dgvProducts.DataSource = dv;
             }
         }
 
@@ -332,7 +334,7 @@ namespace PAKOPointOfSale.Products
                     dt.Load(reader);
                 }
 
-                dataGridView1.DataSource = dt;
+                dgvProducts.DataSource = dt;
             }
         }
         private void FilterProductsByStatus(string status)
@@ -378,7 +380,7 @@ namespace PAKOPointOfSale.Products
                     dt.Load(reader);
                 }
 
-                dataGridView1.DataSource = dt;
+                dgvProducts.DataSource = dt;
             }
         }
         private void FilterProductsByDateRange(DateTime from, DateTime to, string dateField)
@@ -426,7 +428,7 @@ namespace PAKOPointOfSale.Products
                     dt.Load(reader);
                 }
 
-                dataGridView1.DataSource = dt;
+                dgvProducts.DataSource = dt;
             }
         }
 
@@ -449,7 +451,7 @@ namespace PAKOPointOfSale.Products
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count == 0)
+            if (dgvProducts.Rows.Count == 0)
             {
                 MessageBox.Show("No data to export.");
                 ActivityLogs.Log(
@@ -479,7 +481,7 @@ namespace PAKOPointOfSale.Products
                         {
                             using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
                             {
-                                var visibleColumns = dataGridView1.Columns
+                                var visibleColumns = dgvProducts.Columns
                                     .Cast<DataGridViewColumn>()
                                     .Where(c => c.Visible && !string.Equals(c.HeaderText, "", StringComparison.OrdinalIgnoreCase))
                                     .ToList();
@@ -488,7 +490,7 @@ namespace PAKOPointOfSale.Products
                                 sw.WriteLine(string.Join(",", visibleColumns.Select(c => QuoteCsv(c.HeaderText))));
 
                                 // Write rows
-                                foreach (DataGridViewRow row in dataGridView1.Rows)
+                                foreach (DataGridViewRow row in dgvProducts.Rows)
                                 {
                                     if (!row.IsNewRow)
                                     {
@@ -574,7 +576,7 @@ namespace PAKOPointOfSale.Products
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            printableColumns = dataGridView1.Columns
+            printableColumns = dgvProducts.Columns
         .Cast<DataGridViewColumn>()
         .Where(c => c.Visible && !string.Equals(c.HeaderText, "", StringComparison.OrdinalIgnoreCase))
         .ToList();
@@ -616,7 +618,7 @@ namespace PAKOPointOfSale.Products
             e.Graphics.DrawString(date, new Font("Arial", 9, FontStyle.Italic), brush, leftMargin, y - 20);
 
             // Get visible columns excluding "Edit"
-            var visibleColumns = dataGridView1.Columns
+            var visibleColumns = dgvProducts.Columns
                 .Cast<DataGridViewColumn>()
                 .Where(c => c.Visible && !string.Equals(c.HeaderText, "", StringComparison.OrdinalIgnoreCase))
                 .ToList();
@@ -647,9 +649,9 @@ namespace PAKOPointOfSale.Products
             y += headerHeight;
 
             // Rows
-            while (currentRow < dataGridView1.Rows.Count)
+            while (currentRow < dgvProducts.Rows.Count)
             {
-                DataGridViewRow row = dataGridView1.Rows[currentRow];
+                DataGridViewRow row = dgvProducts.Rows[currentRow];
                 if (row.IsNewRow)
                 {
                     currentRow++;
@@ -749,10 +751,10 @@ namespace PAKOPointOfSale.Products
                 {
                     string columnName = columnMap[displayName];
 
-                    if (dataGridView1.Columns.Contains(columnName))
+                    if (dgvProducts.Columns.Contains(columnName))
                     {
                         bool visible = checkedListBox1.CheckedItems.Contains(item);
-                        dataGridView1.Columns[columnName].Visible = visible;
+                        dgvProducts.Columns[columnName].Visible = visible;
                     }
                 }
             }
@@ -761,6 +763,18 @@ namespace PAKOPointOfSale.Products
         private void label1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvProducts_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvProducts.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            {
+                dgvProducts.Cursor = Cursors.Hand;
+            }
+            else
+            {
+                dgvProducts.Cursor = Cursors.Default;
+            }
         }
     }
 }

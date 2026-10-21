@@ -66,8 +66,8 @@ namespace PAKOPointOfSale.Supplier_Details
                 cmbStatus.SelectedIndex = 0;
                 DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["edit"];
                 c.FlatStyle = FlatStyle.Flat;
-                c.DefaultCellStyle.ForeColor = Color.White;
-                c.DefaultCellStyle.BackColor = Color.LightBlue;
+                c.DefaultCellStyle.ForeColor = Color.FromArgb(237, 242, 239);
+                c.DefaultCellStyle.BackColor = Color.FromArgb(33, 39, 56);
             }
             catch (Exception ex)
             {
@@ -327,6 +327,18 @@ namespace PAKOPointOfSale.Supplier_Details
             {
                 this.Close(); // Hide the current form
                 e.Handled = true; // Prevent further processing of the key event
+            }
+        }
+
+        private void dataGridView1_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            {
+                dataGridView1.Cursor = Cursors.Hand;
+            }
+            else
+            {
+                dataGridView1.Cursor = Cursors.Default;
             }
         }
     }

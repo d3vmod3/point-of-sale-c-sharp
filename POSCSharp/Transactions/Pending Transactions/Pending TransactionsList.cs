@@ -68,15 +68,16 @@ namespace PAKOPointOfSale.Transactions.Parked_Transactions
                 }
                 DataGridViewButtonColumn c = (DataGridViewButtonColumn)dtgvParkedTransactions.Columns["settle"];
                 c.FlatStyle = FlatStyle.Flat;
-                c.DefaultCellStyle.ForeColor = Color.White;
-                c.DefaultCellStyle.BackColor = Color.LightBlue;
+                c.DefaultCellStyle.ForeColor = Color.Black;
+                c.DefaultCellStyle.BackColor = Color.FromArgb(87, 196, 229);
+
 
                 dtgvParkedTransactions.Columns["sub_total"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
                 DataGridViewButtonColumn d = (DataGridViewButtonColumn)dtgvParkedTransactions.Columns["cancel"];
                 d.FlatStyle = FlatStyle.Flat;
-                d.DefaultCellStyle.ForeColor = Color.White;
-                d.DefaultCellStyle.BackColor = Color.Coral;
+                d.DefaultCellStyle.ForeColor = Color.Black;
+                d.DefaultCellStyle.BackColor = Color.FromArgb(249, 112, 104);
             }
             catch (Exception ex)
             {
@@ -333,6 +334,18 @@ namespace PAKOPointOfSale.Transactions.Parked_Transactions
             catch (Exception ex)
             {
                 MessageBox.Show("Error exporting CSV: " + ex.Message);
+            }
+        }
+
+        private void dtgvParkedTransactions_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dtgvParkedTransactions.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            {
+                dtgvParkedTransactions.Cursor = Cursors.Hand;
+            }
+            else
+            {
+                dtgvParkedTransactions.Cursor = Cursors.Default;
             }
         }
     }

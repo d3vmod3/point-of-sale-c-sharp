@@ -57,35 +57,40 @@
             salesInvoiceItemBindingSource = new BindingSource(components);
             button1 = new Button();
             label1 = new Label();
-            pictureBox5 = new PictureBox();
-            pictureBox1 = new PictureBox();
-            label2 = new Label();
             btnClose = new Button();
+            panel1 = new Panel();
+            label2 = new Label();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            lblTime = new Label();
+            lblDate = new Label();
+            label8 = new Label();
+            pictureBox4 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvReturnItems).BeginInit();
             ((System.ComponentModel.ISupportInitialize)salesInvoiceItemBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // lblInvoiceNumber
             // 
             lblInvoiceNumber.AutoSize = true;
-            lblInvoiceNumber.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold | FontStyle.Italic);
+            lblInvoiceNumber.Font = new Font("Roboto", 14.25F, FontStyle.Bold | FontStyle.Italic);
             lblInvoiceNumber.ForeColor = Color.Black;
-            lblInvoiceNumber.Location = new Point(753, 114);
+            lblInvoiceNumber.Location = new Point(163, 112);
             lblInvoiceNumber.Name = "lblInvoiceNumber";
-            lblInvoiceNumber.Size = new Size(78, 25);
+            lblInvoiceNumber.Size = new Size(76, 23);
             lblInvoiceNumber.TabIndex = 7;
             lblInvoiceNumber.Text = "000000";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold | FontStyle.Italic);
+            label3.Font = new Font("Roboto", 14.25F, FontStyle.Bold | FontStyle.Italic);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(598, 113);
+            label3.Location = new Point(12, 112);
             label3.Name = "label3";
-            label3.Size = new Size(155, 25);
+            label3.Size = new Size(145, 23);
             label3.TabIndex = 6;
             label3.Text = "Invoice Number:";
             // 
@@ -96,10 +101,11 @@
             dataGridViewCellStyle1.ForeColor = Color.Black;
             dgvReturnItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvReturnItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvReturnItems.BackgroundColor = Color.FromArgb(237, 242, 239);
             dgvReturnItems.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
@@ -109,7 +115,7 @@
             dgvReturnItems.Columns.AddRange(new DataGridViewColumn[] { id, product_id, product_code, product_name, product_brand, quantity, remainingQty, unit_of_measurement, unit_price, discount_type, discount, total_amount, vatable_sales, vat_amount, vat_exempt, transaction_id, remove });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.Font = new Font("Roboto SemiBold", 9.75F);
             dataGridViewCellStyle3.ForeColor = Color.White;
             dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
@@ -253,11 +259,11 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.ForestGreen;
+            button1.BackColor = Color.FromArgb(33, 39, 56);
             button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            button1.ForeColor = Color.Black;
-            button1.Location = new Point(1134, 111);
+            button1.Font = new Font("Roboto", 9.75F);
+            button1.ForeColor = Color.FromArgb(237, 242, 239);
+            button1.Location = new Point(1146, 111);
             button1.Name = "button1";
             button1.Size = new Size(127, 36);
             button1.TabIndex = 9;
@@ -268,54 +274,21 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Roboto", 9.75F);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(12, 130);
+            label1.Location = new Point(12, 135);
             label1.Name = "label1";
-            label1.Size = new Size(354, 17);
+            label1.Size = new Size(318, 15);
             label1.TabIndex = 10;
             label1.Text = "Adjust the applied quantity for each item to be returned.";
             // 
-            // pictureBox5
-            // 
-            pictureBox5.BackColor = Color.DimGray;
-            pictureBox5.Location = new Point(-1, 0);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(1370, 103);
-            pictureBox5.TabIndex = 154;
-            pictureBox5.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.DimGray;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-1, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(251, 103);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 156;
-            pictureBox1.TabStop = false;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = SystemColors.ControlDarkDark;
-            label2.FlatStyle = FlatStyle.System;
-            label2.Font = new Font("Impact", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(256, 20);
-            label2.Name = "label2";
-            label2.Size = new Size(380, 60);
-            label2.TabIndex = 157;
-            label2.Text = "RETURN ITEMS LIST";
-            // 
             // btnClose
             // 
-            btnClose.BackColor = Color.Red;
+            btnClose.BackColor = Color.FromArgb(249, 112, 104);
             btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            btnClose.ForeColor = Color.Black;
-            btnClose.Location = new Point(1277, 111);
+            btnClose.Font = new Font("Roboto", 9.75F);
+            btnClose.ForeColor = Color.FromArgb(237, 242, 239);
+            btnClose.Location = new Point(1279, 111);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(79, 36);
             btnClose.TabIndex = 158;
@@ -323,34 +296,128 @@
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(33, 39, 56);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(tableLayoutPanel1);
+            panel1.Controls.Add(label8);
+            panel1.Controls.Add(pictureBox4);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1368, 69);
+            panel1.TabIndex = 197;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Roboto", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(237, 242, 239);
+            label2.Location = new Point(594, 12);
+            label2.Name = "label2";
+            label2.Size = new Size(263, 42);
+            label2.TabIndex = 194;
+            label2.Text = "RETURN ITEMS";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(lblTime, 0, 1);
+            tableLayoutPanel1.Controls.Add(lblDate, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Right;
+            tableLayoutPanel1.Location = new Point(1168, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(200, 69);
+            tableLayoutPanel1.TabIndex = 192;
+            // 
+            // lblTime
+            // 
+            lblTime.Anchor = AnchorStyles.Right;
+            lblTime.AutoSize = true;
+            lblTime.BackColor = Color.Transparent;
+            lblTime.Font = new Font("Roboto", 11.25F);
+            lblTime.ForeColor = Color.White;
+            lblTime.Location = new Point(109, 42);
+            lblTime.Name = "lblTime";
+            lblTime.Size = new Size(88, 18);
+            lblTime.TabIndex = 160;
+            lblTime.Text = "hh:mm:ss tt";
+            // 
+            // lblDate
+            // 
+            lblDate.Anchor = AnchorStyles.Right;
+            lblDate.AutoSize = true;
+            lblDate.BackColor = Color.Transparent;
+            lblDate.Font = new Font("Roboto", 11.25F);
+            lblDate.ForeColor = Color.White;
+            lblDate.Location = new Point(95, 8);
+            lblDate.Name = "lblDate";
+            lblDate.Size = new Size(102, 18);
+            lblDate.TabIndex = 159;
+            lblDate.Text = "MM/DD/YYYY";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BackColor = Color.Transparent;
+            label8.Font = new Font("Roboto", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.FromArgb(237, 242, 239);
+            label8.Location = new Point(62, 12);
+            label8.Name = "label8";
+            label8.Size = new Size(127, 42);
+            label8.TabIndex = 191;
+            label8.Text = "ATPOS";
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.BackColor = Color.Transparent;
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(3, 0);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(74, 63);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 189;
+            pictureBox4.TabStop = false;
+            // 
             // ReturnForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.CadetBlue;
-            ClientSize = new Size(1370, 788);
+            BackColor = Color.FromArgb(237, 242, 239);
+            ClientSize = new Size(1368, 788);
+            Controls.Add(panel1);
             Controls.Add(btnClose);
-            Controls.Add(label2);
-            Controls.Add(pictureBox1);
-            Controls.Add(pictureBox5);
             Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(dgvReturnItems);
             Controls.Add(lblInvoiceNumber);
             Controls.Add(label3);
             ForeColor = Color.White;
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "ReturnForm";
+            SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "ReturnForm";
+            Text = "Return Items";
             Load += ReturnForm_Load;
             KeyDown += ReturnForm_KeyDown;
             ((System.ComponentModel.ISupportInitialize)dgvReturnItems).EndInit();
             ((System.ComponentModel.ISupportInitialize)salesInvoiceItemBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -365,9 +432,6 @@
         private DataGridViewTextBoxColumn productDataGridViewTextBoxColumn;
         private Label label1;
         private DataGridViewTextBoxColumn trasaction_id;
-        private PictureBox pictureBox5;
-        private PictureBox pictureBox1;
-        private Label label2;
         private Button btnClose;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn product_id;
@@ -386,5 +450,12 @@
         private DataGridViewTextBoxColumn vat_exempt;
         private DataGridViewTextBoxColumn transaction_id;
         private DataGridViewButtonColumn remove;
+        private Panel panel1;
+        private Label label2;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Label lblTime;
+        private Label lblDate;
+        private Label label8;
+        private PictureBox pictureBox4;
     }
 }
