@@ -140,7 +140,7 @@
             btnSubmit.FlatStyle = FlatStyle.Popup;
             btnSubmit.Font = new Font("Roboto", 9.75F);
             btnSubmit.ForeColor = Color.FromArgb(237, 242, 239);
-            btnSubmit.Location = new Point(411, 264);
+            btnSubmit.Location = new Point(413, 264);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(75, 28);
             btnSubmit.TabIndex = 35;
@@ -154,11 +154,11 @@
             btnClose.FlatStyle = FlatStyle.Popup;
             btnClose.Font = new Font("Roboto", 9.75F);
             btnClose.ForeColor = Color.FromArgb(237, 242, 239);
-            btnClose.Location = new Point(492, 264);
+            btnClose.Location = new Point(494, 264);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(76, 28);
+            btnClose.Size = new Size(75, 28);
             btnClose.TabIndex = 150;
-            btnClose.Text = "Cancel";
+            btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
             // 

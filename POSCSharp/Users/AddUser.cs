@@ -89,7 +89,7 @@ namespace PAKOPointOfSale.Users
                         cmd.Parameters.AddWithValue("@suffix", string.IsNullOrEmpty(txtSuffix.Text) ? (object)DBNull.Value : txtSuffix.Text);
                         cmd.Parameters.AddWithValue("@user_type_id", (int)cmbRole.SelectedValue);
                         cmd.Parameters.AddWithValue("@created_at", DateTime.Now);
-                        cmd.Parameters.AddWithValue("@is_active", false);
+                        cmd.Parameters.AddWithValue("@is_active", chkIsActive.Checked);
                         cmd.Parameters.AddWithValue("@is_reset", true);
 
                         cmd.ExecuteNonQuery();
@@ -107,7 +107,7 @@ namespace PAKOPointOfSale.Users
                             middle_name = txtMiddleName.Text,
                             last_name = txtLastName.Text,
                             birthday = dtpBirthdate.Value,
-                    });
+                        });
 
                     MessageBox.Show("User added successfully!");
                     this.Close();
@@ -221,6 +221,11 @@ namespace PAKOPointOfSale.Users
                 this.Close(); // Hide the current form
                 e.Handled = true; // Prevent further processing of the key event
             }
+        }
+
+        private void chkIsActive_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -52,10 +52,12 @@ namespace PAKOPointOfSale.Transactions
             btnEndShift = new Button();
             txtScannedBarcode = new TextBox();
             tableLayoutPanel6 = new TableLayoutPanel();
+            tableLayoutPanel9 = new TableLayoutPanel();
             tableLayoutPanel7 = new TableLayoutPanel();
             lblTime = new Label();
             lblDate = new Label();
             lblFullName = new Label();
+            panel3 = new Panel();
             label8 = new Label();
             pictureBox4 = new PictureBox();
             lblPendingNumber = new Label();
@@ -106,13 +108,13 @@ namespace PAKOPointOfSale.Transactions
             num_cash = new NumericUpDown();
             label4 = new Label();
             tableLayoutPanel8 = new TableLayoutPanel();
-            tableLayoutPanel9 = new TableLayoutPanel();
-            panel3 = new Panel();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userTypeBindingSource).BeginInit();
             tableLayoutPanel3.SuspendLayout();
             tableLayoutPanel6.SuspendLayout();
+            tableLayoutPanel9.SuspendLayout();
             tableLayoutPanel7.SuspendLayout();
+            panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -126,8 +128,6 @@ namespace PAKOPointOfSale.Transactions
             tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)num_cash).BeginInit();
-            tableLayoutPanel9.SuspendLayout();
-            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // productBindingSource
@@ -333,6 +333,25 @@ namespace PAKOPointOfSale.Transactions
             tableLayoutPanel6.Size = new Size(1434, 797);
             tableLayoutPanel6.TabIndex = 198;
             // 
+            // tableLayoutPanel9
+            // 
+            tableLayoutPanel9.BackColor = Color.FromArgb(33, 39, 56);
+            tableLayoutPanel9.ColumnCount = 3;
+            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel9.Controls.Add(tableLayoutPanel7, 2, 0);
+            tableLayoutPanel9.Controls.Add(panel3, 0, 0);
+            tableLayoutPanel9.Controls.Add(lblPendingNumber, 1, 0);
+            tableLayoutPanel9.Dock = DockStyle.Top;
+            tableLayoutPanel9.ForeColor = SystemColors.ControlLightLight;
+            tableLayoutPanel9.Location = new Point(3, 3);
+            tableLayoutPanel9.Name = "tableLayoutPanel9";
+            tableLayoutPanel9.RowCount = 1;
+            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel9.Size = new Size(1428, 69);
+            tableLayoutPanel9.TabIndex = 13;
+            // 
             // tableLayoutPanel7
             // 
             tableLayoutPanel7.ColumnCount = 1;
@@ -388,6 +407,16 @@ namespace PAKOPointOfSale.Transactions
             lblFullName.Size = new Size(96, 21);
             lblFullName.TabIndex = 184;
             lblFullName.Text = "Full Name";
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(label8);
+            panel3.Controls.Add(pictureBox4);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(3, 3);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(470, 63);
+            panel3.TabIndex = 0;
             // 
             // label8
             // 
@@ -1095,35 +1124,6 @@ namespace PAKOPointOfSale.Transactions
             tableLayoutPanel8.Size = new Size(8, 8);
             tableLayoutPanel8.TabIndex = 199;
             // 
-            // tableLayoutPanel9
-            // 
-            tableLayoutPanel9.BackColor = Color.FromArgb(33, 39, 56);
-            tableLayoutPanel9.ColumnCount = 3;
-            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel9.Controls.Add(tableLayoutPanel7, 2, 0);
-            tableLayoutPanel9.Controls.Add(panel3, 0, 0);
-            tableLayoutPanel9.Controls.Add(lblPendingNumber, 1, 0);
-            tableLayoutPanel9.Dock = DockStyle.Top;
-            tableLayoutPanel9.ForeColor = SystemColors.ControlLightLight;
-            tableLayoutPanel9.Location = new Point(3, 3);
-            tableLayoutPanel9.Name = "tableLayoutPanel9";
-            tableLayoutPanel9.RowCount = 1;
-            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel9.Size = new Size(1428, 69);
-            tableLayoutPanel9.TabIndex = 13;
-            // 
-            // panel3
-            // 
-            panel3.Controls.Add(label8);
-            panel3.Controls.Add(pictureBox4);
-            panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(3, 3);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(470, 63);
-            panel3.TabIndex = 0;
-            // 
             // PointOfSale
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1147,8 +1147,12 @@ namespace PAKOPointOfSale.Transactions
             ((System.ComponentModel.ISupportInitialize)userTypeBindingSource).EndInit();
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel6.ResumeLayout(false);
+            tableLayoutPanel9.ResumeLayout(false);
+            tableLayoutPanel9.PerformLayout();
             tableLayoutPanel7.ResumeLayout(false);
             tableLayoutPanel7.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
@@ -1164,10 +1168,6 @@ namespace PAKOPointOfSale.Transactions
             tableLayoutPanel5.ResumeLayout(false);
             tableLayoutPanel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)num_cash).EndInit();
-            tableLayoutPanel9.ResumeLayout(false);
-            tableLayoutPanel9.PerformLayout();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }

@@ -153,7 +153,7 @@ namespace PAKOPointOfSale.Users
                                     middle_name = txtMiddleName.Text,
                                     last_name = txtLastName.Text,
                                     birthday = dtpBirthdate.Value,
-                            });
+                                });
                             MessageBox.Show("User updated successfully!");
                             this.Close(); // close the EditUser form
                         }
@@ -317,7 +317,7 @@ namespace PAKOPointOfSale.Users
                                 description: "Clicked Reset Password > Confirm button",
                                 payload: new
                                 {
-                                    status="success"
+                                    status = "success"
                                 }
                             );
                             MessageBox.Show("Password was successfully reset!");
@@ -338,6 +338,11 @@ namespace PAKOPointOfSale.Users
                 this.Close(); // Hide the current form
                 e.Handled = true; // Prevent further processing of the key event
             }
+        }
+
+        private void userTypeBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
