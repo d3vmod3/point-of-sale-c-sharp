@@ -64,7 +64,6 @@ namespace PAKOPointOfSale.Transactions
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
-            button1 = new Button();
             btnViewReason = new Button();
             btnClose = new Button();
             panel2 = new Panel();
@@ -353,19 +352,6 @@ namespace PAKOPointOfSale.Transactions
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
             // 
-            // button1
-            // 
-            button1.BackColor = Color.Red;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(1479, 128);
-            button1.Name = "button1";
-            button1.Size = new Size(86, 28);
-            button1.TabIndex = 156;
-            button1.Text = "Close";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click_1;
-            // 
             // btnViewReason
             // 
             btnViewReason.BackColor = Color.FromArgb(87, 196, 229);
@@ -506,7 +492,6 @@ namespace PAKOPointOfSale.Transactions
             Controls.Add(panel2);
             Controls.Add(btnViewReason);
             Controls.Add(btnClose);
-            Controls.Add(button1);
             Controls.Add(label9);
             Controls.Add(cmbInvoiceAction);
             Controls.Add(btnViewReceipt);
@@ -515,6 +500,8 @@ namespace PAKOPointOfSale.Transactions
             Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "lbViewTransaction";
             SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
@@ -555,7 +542,6 @@ namespace PAKOPointOfSale.Transactions
         private PictureBox pictureBox3;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
-        private Button button1;
         private Button btnViewReason;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn product_code;

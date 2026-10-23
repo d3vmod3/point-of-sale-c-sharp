@@ -541,22 +541,31 @@ namespace PAKOPointOfSale.Transactions
                 //view void receipt
                 string appPath = Application.StartupPath;
                 string pdfPath = Path.Combine(appPath, $"Void_{adjustment_number}.pdf");
-                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                if (File.Exists(pdfPath))
                 {
-                    FileName = pdfPath,
-                    UseShellExecute = true
-                });
-                ActivityLogs.Log(
-                    user: LoggedInUser.FullName,
-                    action: "click",
-                    module: "Transactions List > View Transaction",
-                    description: "Clicked View Receipt button",
-                    payload: new
+                    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
                     {
-                        trnsaction_type = "void",
-                        invoice_number = _invoiceNumber,
-                    }
-                );
+                        FileName = pdfPath,
+                        UseShellExecute = true
+                    });
+                    ActivityLogs.Log(
+                        user: LoggedInUser.FullName,
+                        action: "click",
+                        module: "Transactions List > View Transaction",
+                        description: "Clicked View Receipt button",
+                        payload: new
+                        {
+                            trnsaction_type = "void",
+                            invoice_number = _invoiceNumber,
+                        }
+                    );
+                }
+                
+                
+                else
+                {
+                    MessageBox.Show("Void Receipt file not found!", "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
 
             }
@@ -565,22 +574,34 @@ namespace PAKOPointOfSale.Transactions
                 //view return receipt
                 string appPath = Application.StartupPath;
                 string pdfPath = Path.Combine(appPath, $"Return_{adjustment_number}.pdf");
-                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                if (File.Exists(pdfPath))
                 {
-                    FileName = pdfPath,
-                    UseShellExecute = true
-                });
-                ActivityLogs.Log(
-                    user: LoggedInUser.FullName,
-                    action: "click",
-                    module: "Transactions List > View Transaction",
-                    description: "Clicked View Receipt button",
-                    payload: new
+                    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
                     {
-                        trnsaction_type = "return",
-                        invoice_number = _invoiceNumber
-                    }
-                );
+                        FileName = pdfPath,
+                        UseShellExecute = true
+                    });
+                    ActivityLogs.Log(
+                        user: LoggedInUser.FullName,
+                        action: "click",
+                        module: "Transactions List > View Transaction",
+                        description: "Clicked View Receipt button",
+                        payload: new
+                        {
+                            trnsaction_type = "return",
+                            invoice_number = _invoiceNumber
+                        }
+                    );
+                }
+                else
+                {
+                    MessageBox.Show("Return Receipt file not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
+
+
+                
 
             }
             if (transactionType == "Sales Invoice")
@@ -588,22 +609,40 @@ namespace PAKOPointOfSale.Transactions
                 //view Sales Invoice receipt
                 string appPath = Application.StartupPath;
                 string pdfPath = Path.Combine(appPath, $"Receipt_{_invoiceNumber}.pdf");
-                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                if (File.Exists(pdfPath))
                 {
-                    FileName = pdfPath,
-                    UseShellExecute = true
-                });
-                ActivityLogs.Log(
-                    user: LoggedInUser.FullName,
-                    action: "click",
-                    module: "Transactions List > View Transaction",
-                    description: "Clicked View Receipt button",
-                    payload: new
+                    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
                     {
-                        trnsaction_type = "sales invoice",
-                        invoice_number = _invoiceNumber,
-                    }
-                );
+                        FileName = pdfPath,
+                        UseShellExecute = true
+                    });
+                    ActivityLogs.Log(
+                        user: LoggedInUser.FullName,
+                        action: "click",
+                        module: "Transactions List > View Transaction",
+                        description: "Clicked View Receipt button",
+                        payload: new
+                        {
+                            trnsaction_type = "sales invoice",
+                            invoice_number = _invoiceNumber,
+                        }
+                    );
+                }
+                else
+                {
+                    MessageBox.Show("Sales Invoice Receipt file not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
+
+
+
+
+
+
+
+
+
 
             }
         }
@@ -630,7 +669,7 @@ namespace PAKOPointOfSale.Transactions
 
         private void btnViewReason_Click(object sender, EventArgs e)
         {
-            Transactions.ViewAdjustmentReason viewReasonForm = new Transactions.ViewAdjustmentReason(Convert.ToInt32(transactionType), _invoiceNumber, transactionType);
+            Transactions.ViewAdjustmentReason viewReasonForm = new Transactions.ViewAdjustmentReason(Convert.ToInt32(transactionId), _invoiceNumber, transactionType);
             ActivityLogs.Log(
                 user: LoggedInUser.FullName,
                 action: "click",

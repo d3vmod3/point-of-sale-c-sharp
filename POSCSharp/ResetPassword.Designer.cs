@@ -41,38 +41,40 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(146, 19);
+            label1.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
+            label1.Location = new Point(134, 19);
             label1.Name = "label1";
-            label1.Size = new Size(176, 17);
+            label1.Size = new Size(168, 15);
             label1.TabIndex = 0;
             label1.Text = "Please input new password.";
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(179, 63);
+            txtPassword.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
+            txtPassword.Location = new Point(134, 50);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '•';
-            txtPassword.Size = new Size(212, 23);
+            txtPassword.Size = new Size(250, 23);
             txtPassword.TabIndex = 1;
             // 
             // txtConfirmPassword
             // 
-            txtConfirmPassword.Location = new Point(178, 97);
+            txtConfirmPassword.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
+            txtConfirmPassword.Location = new Point(134, 79);
             txtConfirmPassword.Name = "txtConfirmPassword";
             txtConfirmPassword.PasswordChar = '•';
-            txtConfirmPassword.Size = new Size(212, 23);
+            txtConfirmPassword.Size = new Size(250, 23);
             txtConfirmPassword.TabIndex = 2;
             // 
             // btnSubmit
             // 
-            btnSubmit.BackColor = Color.SeaGreen;
+            btnSubmit.BackColor = Color.FromArgb(33, 39, 56);
             btnSubmit.FlatStyle = FlatStyle.Popup;
-            btnSubmit.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btnSubmit.Font = new Font("Roboto", 9.75F);
             btnSubmit.ForeColor = Color.White;
-            btnSubmit.Location = new Point(146, 152);
+            btnSubmit.Location = new Point(208, 139);
             btnSubmit.Name = "btnSubmit";
-            btnSubmit.Size = new Size(75, 23);
+            btnSubmit.Size = new Size(85, 26);
             btnSubmit.TabIndex = 3;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = false;
@@ -80,13 +82,13 @@
             // 
             // btnCancel
             // 
-            btnCancel.BackColor = Color.Red;
+            btnCancel.BackColor = Color.FromArgb(249, 112, 104);
             btnCancel.FlatStyle = FlatStyle.Popup;
-            btnCancel.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btnCancel.Font = new Font("Roboto", 9.75F);
             btnCancel.ForeColor = Color.White;
-            btnCancel.Location = new Point(227, 152);
+            btnCancel.Location = new Point(299, 139);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(75, 23);
+            btnCancel.Size = new Size(85, 26);
             btnCancel.TabIndex = 4;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = false;
@@ -95,20 +97,21 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(71, 67);
+            label2.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
+            label2.Location = new Point(32, 53);
             label2.Name = "label2";
-            label2.Size = new Size(100, 17);
+            label2.Size = new Size(98, 15);
             label2.TabIndex = 5;
             label2.Text = "New Password:";
             // 
             // chkShowPassword
             // 
             chkShowPassword.AutoSize = true;
-            chkShowPassword.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            chkShowPassword.Location = new Point(282, 126);
+            chkShowPassword.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            chkShowPassword.ForeColor = Color.FromArgb(87, 196, 229);
+            chkShowPassword.Location = new Point(265, 108);
             chkShowPassword.Name = "chkShowPassword";
-            chkShowPassword.Size = new Size(109, 19);
+            chkShowPassword.Size = new Size(119, 19);
             chkShowPassword.TabIndex = 6;
             chkShowPassword.Text = "Show Password";
             chkShowPassword.UseVisualStyleBackColor = true;
@@ -117,10 +120,10 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(51, 99);
+            label3.Font = new Font("Roboto SemiBold", 9.75F, FontStyle.Bold);
+            label3.Location = new Point(12, 82);
             label3.Name = "label3";
-            label3.Size = new Size(121, 17);
+            label3.Size = new Size(119, 15);
             label3.TabIndex = 7;
             label3.Text = "Confirm Password:";
             label3.Click += label3_Click;
@@ -129,8 +132,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.CadetBlue;
-            ClientSize = new Size(447, 191);
+            BackColor = Color.FromArgb(237, 242, 239);
+            ClientSize = new Size(414, 174);
             Controls.Add(label3);
             Controls.Add(chkShowPassword);
             Controls.Add(label2);
@@ -139,8 +142,9 @@
             Controls.Add(txtConfirmPassword);
             Controls.Add(txtPassword);
             Controls.Add(label1);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "ResetPassword";
+            SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Reset Password";
             Load += ResetPassword_Load;

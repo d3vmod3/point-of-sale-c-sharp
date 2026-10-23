@@ -87,18 +87,18 @@ namespace PAKOPointOfSale.Transactions
             label2 = new Label();
             label1 = new Label();
             tableLayoutPanel2 = new TableLayoutPanel();
-            btnKey5 = new Button();
             btnKey1 = new Button();
-            btnKey8 = new Button();
             btnKey2 = new Button();
-            btnKey9 = new Button();
-            btnKey6 = new Button();
-            btn00 = new Button();
-            btnKey7 = new Button();
-            btnClearCash = new Button();
-            btnKey4 = new Button();
-            btnDot = new Button();
             btnKey3 = new Button();
+            btnKey4 = new Button();
+            btnKey5 = new Button();
+            btnKey6 = new Button();
+            btnKey7 = new Button();
+            btnKey8 = new Button();
+            btnKey9 = new Button();
+            btnClearCash = new Button();
+            btnDot = new Button();
+            btn00 = new Button();
             tableLayoutPanel4 = new TableLayoutPanel();
             btn1h = new Button();
             btn1k = new Button();
@@ -751,18 +751,18 @@ namespace PAKOPointOfSale.Transactions
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel2.Controls.Add(btnKey5, 2, 3);
             tableLayoutPanel2.Controls.Add(btnKey1, 0, 0);
-            tableLayoutPanel2.Controls.Add(btnKey8, 1, 0);
-            tableLayoutPanel2.Controls.Add(btnKey2, 1, 3);
-            tableLayoutPanel2.Controls.Add(btnKey9, 2, 0);
-            tableLayoutPanel2.Controls.Add(btnKey6, 0, 1);
+            tableLayoutPanel2.Controls.Add(btnKey2, 1, 0);
+            tableLayoutPanel2.Controls.Add(btnKey3, 2, 0);
+            tableLayoutPanel2.Controls.Add(btnKey4, 0, 1);
+            tableLayoutPanel2.Controls.Add(btnKey5, 1, 1);
+            tableLayoutPanel2.Controls.Add(btnKey6, 2, 1);
+            tableLayoutPanel2.Controls.Add(btnKey7, 0, 2);
+            tableLayoutPanel2.Controls.Add(btnKey8, 1, 2);
+            tableLayoutPanel2.Controls.Add(btnKey9, 2, 2);
+            tableLayoutPanel2.Controls.Add(btnClearCash, 2, 3);
+            tableLayoutPanel2.Controls.Add(btnDot, 1, 3);
             tableLayoutPanel2.Controls.Add(btn00, 0, 3);
-            tableLayoutPanel2.Controls.Add(btnKey7, 1, 1);
-            tableLayoutPanel2.Controls.Add(btnClearCash, 2, 1);
-            tableLayoutPanel2.Controls.Add(btnKey4, 0, 2);
-            tableLayoutPanel2.Controls.Add(btnDot, 2, 2);
-            tableLayoutPanel2.Controls.Add(btnKey3, 1, 2);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(3, 69);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -773,23 +773,6 @@ namespace PAKOPointOfSale.Transactions
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel2.Size = new Size(423, 259);
             tableLayoutPanel2.TabIndex = 46;
-            // 
-            // btnKey5
-            // 
-            btnKey5.BackColor = Color.FromArgb(87, 196, 229);
-            btnKey5.Dock = DockStyle.Fill;
-            btnKey5.FlatAppearance.BorderColor = Color.FromArgb(33, 39, 56);
-            btnKey5.FlatAppearance.BorderSize = 3;
-            btnKey5.FlatStyle = FlatStyle.Flat;
-            btnKey5.Font = new Font("Roboto SemiBold", 12F, FontStyle.Bold);
-            btnKey5.ForeColor = Color.FromArgb(33, 39, 56);
-            btnKey5.Location = new Point(283, 195);
-            btnKey5.Name = "btnKey5";
-            btnKey5.Size = new Size(137, 61);
-            btnKey5.TabIndex = 38;
-            btnKey5.Text = "5";
-            btnKey5.UseVisualStyleBackColor = false;
-            btnKey5.Click += btnKey5_Click;
             // 
             // btnKey1
             // 
@@ -808,23 +791,6 @@ namespace PAKOPointOfSale.Transactions
             btnKey1.UseVisualStyleBackColor = false;
             btnKey1.Click += button6_Click;
             // 
-            // btnKey8
-            // 
-            btnKey8.BackColor = Color.FromArgb(87, 196, 229);
-            btnKey8.Dock = DockStyle.Fill;
-            btnKey8.FlatAppearance.BorderColor = Color.FromArgb(33, 39, 56);
-            btnKey8.FlatAppearance.BorderSize = 3;
-            btnKey8.FlatStyle = FlatStyle.Flat;
-            btnKey8.Font = new Font("Roboto SemiBold", 12F, FontStyle.Bold);
-            btnKey8.ForeColor = Color.FromArgb(33, 39, 56);
-            btnKey8.Location = new Point(143, 3);
-            btnKey8.Name = "btnKey8";
-            btnKey8.Size = new Size(134, 58);
-            btnKey8.TabIndex = 39;
-            btnKey8.Text = "8";
-            btnKey8.UseVisualStyleBackColor = false;
-            btnKey8.Click += btnKey8_Click;
-            // 
             // btnKey2
             // 
             btnKey2.BackColor = Color.FromArgb(87, 196, 229);
@@ -834,30 +800,64 @@ namespace PAKOPointOfSale.Transactions
             btnKey2.FlatStyle = FlatStyle.Flat;
             btnKey2.Font = new Font("Roboto SemiBold", 12F, FontStyle.Bold);
             btnKey2.ForeColor = Color.FromArgb(33, 39, 56);
-            btnKey2.Location = new Point(143, 195);
+            btnKey2.Location = new Point(143, 3);
             btnKey2.Name = "btnKey2";
-            btnKey2.Size = new Size(134, 61);
+            btnKey2.Size = new Size(134, 58);
             btnKey2.TabIndex = 33;
             btnKey2.Text = "2";
             btnKey2.UseVisualStyleBackColor = false;
             btnKey2.Click += btnKey2_Click;
             // 
-            // btnKey9
+            // btnKey3
             // 
-            btnKey9.BackColor = Color.FromArgb(87, 196, 229);
-            btnKey9.Dock = DockStyle.Fill;
-            btnKey9.FlatAppearance.BorderColor = Color.FromArgb(33, 39, 56);
-            btnKey9.FlatAppearance.BorderSize = 3;
-            btnKey9.FlatStyle = FlatStyle.Flat;
-            btnKey9.Font = new Font("Roboto SemiBold", 12F, FontStyle.Bold);
-            btnKey9.ForeColor = Color.FromArgb(33, 39, 56);
-            btnKey9.Location = new Point(283, 3);
-            btnKey9.Name = "btnKey9";
-            btnKey9.Size = new Size(137, 58);
-            btnKey9.TabIndex = 37;
-            btnKey9.Text = "9";
-            btnKey9.UseVisualStyleBackColor = false;
-            btnKey9.Click += btnKey9_Click;
+            btnKey3.BackColor = Color.FromArgb(87, 196, 229);
+            btnKey3.Dock = DockStyle.Fill;
+            btnKey3.FlatAppearance.BorderColor = Color.FromArgb(33, 39, 56);
+            btnKey3.FlatAppearance.BorderSize = 3;
+            btnKey3.FlatStyle = FlatStyle.Flat;
+            btnKey3.Font = new Font("Roboto SemiBold", 12F, FontStyle.Bold);
+            btnKey3.ForeColor = Color.FromArgb(33, 39, 56);
+            btnKey3.Location = new Point(283, 3);
+            btnKey3.Name = "btnKey3";
+            btnKey3.Size = new Size(137, 58);
+            btnKey3.TabIndex = 34;
+            btnKey3.Text = "3";
+            btnKey3.UseVisualStyleBackColor = false;
+            btnKey3.Click += btnKey3_Click;
+            // 
+            // btnKey4
+            // 
+            btnKey4.BackColor = Color.FromArgb(87, 196, 229);
+            btnKey4.Dock = DockStyle.Fill;
+            btnKey4.FlatAppearance.BorderColor = Color.FromArgb(33, 39, 56);
+            btnKey4.FlatAppearance.BorderSize = 3;
+            btnKey4.FlatStyle = FlatStyle.Flat;
+            btnKey4.Font = new Font("Roboto SemiBold", 12F, FontStyle.Bold);
+            btnKey4.ForeColor = Color.FromArgb(33, 39, 56);
+            btnKey4.Location = new Point(3, 67);
+            btnKey4.Name = "btnKey4";
+            btnKey4.Size = new Size(134, 58);
+            btnKey4.TabIndex = 35;
+            btnKey4.Text = "4";
+            btnKey4.UseVisualStyleBackColor = false;
+            btnKey4.Click += btnKey4_Click;
+            // 
+            // btnKey5
+            // 
+            btnKey5.BackColor = Color.FromArgb(87, 196, 229);
+            btnKey5.Dock = DockStyle.Fill;
+            btnKey5.FlatAppearance.BorderColor = Color.FromArgb(33, 39, 56);
+            btnKey5.FlatAppearance.BorderSize = 3;
+            btnKey5.FlatStyle = FlatStyle.Flat;
+            btnKey5.Font = new Font("Roboto SemiBold", 12F, FontStyle.Bold);
+            btnKey5.ForeColor = Color.FromArgb(33, 39, 56);
+            btnKey5.Location = new Point(143, 67);
+            btnKey5.Name = "btnKey5";
+            btnKey5.Size = new Size(134, 58);
+            btnKey5.TabIndex = 38;
+            btnKey5.Text = "5";
+            btnKey5.UseVisualStyleBackColor = false;
+            btnKey5.Click += btnKey5_Click;
             // 
             // btnKey6
             // 
@@ -868,13 +868,98 @@ namespace PAKOPointOfSale.Transactions
             btnKey6.FlatStyle = FlatStyle.Flat;
             btnKey6.Font = new Font("Roboto SemiBold", 12F, FontStyle.Bold);
             btnKey6.ForeColor = Color.FromArgb(33, 39, 56);
-            btnKey6.Location = new Point(3, 67);
+            btnKey6.Location = new Point(283, 67);
             btnKey6.Name = "btnKey6";
-            btnKey6.Size = new Size(134, 58);
+            btnKey6.Size = new Size(137, 58);
             btnKey6.TabIndex = 40;
             btnKey6.Text = "6";
             btnKey6.UseVisualStyleBackColor = false;
             btnKey6.Click += btnKey6_Click;
+            // 
+            // btnKey7
+            // 
+            btnKey7.BackColor = Color.FromArgb(87, 196, 229);
+            btnKey7.Dock = DockStyle.Fill;
+            btnKey7.FlatAppearance.BorderColor = Color.FromArgb(33, 39, 56);
+            btnKey7.FlatAppearance.BorderSize = 3;
+            btnKey7.FlatStyle = FlatStyle.Flat;
+            btnKey7.Font = new Font("Roboto SemiBold", 12F, FontStyle.Bold);
+            btnKey7.ForeColor = Color.FromArgb(33, 39, 56);
+            btnKey7.Location = new Point(3, 131);
+            btnKey7.Name = "btnKey7";
+            btnKey7.Size = new Size(134, 58);
+            btnKey7.TabIndex = 36;
+            btnKey7.Text = "7";
+            btnKey7.UseVisualStyleBackColor = false;
+            btnKey7.Click += btnKey7_Click;
+            // 
+            // btnKey8
+            // 
+            btnKey8.BackColor = Color.FromArgb(87, 196, 229);
+            btnKey8.Dock = DockStyle.Fill;
+            btnKey8.FlatAppearance.BorderColor = Color.FromArgb(33, 39, 56);
+            btnKey8.FlatAppearance.BorderSize = 3;
+            btnKey8.FlatStyle = FlatStyle.Flat;
+            btnKey8.Font = new Font("Roboto SemiBold", 12F, FontStyle.Bold);
+            btnKey8.ForeColor = Color.FromArgb(33, 39, 56);
+            btnKey8.Location = new Point(143, 131);
+            btnKey8.Name = "btnKey8";
+            btnKey8.Size = new Size(134, 58);
+            btnKey8.TabIndex = 39;
+            btnKey8.Text = "8";
+            btnKey8.UseVisualStyleBackColor = false;
+            btnKey8.Click += btnKey8_Click;
+            // 
+            // btnKey9
+            // 
+            btnKey9.BackColor = Color.FromArgb(87, 196, 229);
+            btnKey9.Dock = DockStyle.Fill;
+            btnKey9.FlatAppearance.BorderColor = Color.FromArgb(33, 39, 56);
+            btnKey9.FlatAppearance.BorderSize = 3;
+            btnKey9.FlatStyle = FlatStyle.Flat;
+            btnKey9.Font = new Font("Roboto SemiBold", 12F, FontStyle.Bold);
+            btnKey9.ForeColor = Color.FromArgb(33, 39, 56);
+            btnKey9.Location = new Point(283, 131);
+            btnKey9.Name = "btnKey9";
+            btnKey9.Size = new Size(137, 58);
+            btnKey9.TabIndex = 37;
+            btnKey9.Text = "9";
+            btnKey9.UseVisualStyleBackColor = false;
+            btnKey9.Click += btnKey9_Click;
+            // 
+            // btnClearCash
+            // 
+            btnClearCash.BackColor = Color.FromArgb(87, 196, 229);
+            btnClearCash.Dock = DockStyle.Fill;
+            btnClearCash.FlatAppearance.BorderColor = Color.FromArgb(33, 39, 56);
+            btnClearCash.FlatAppearance.BorderSize = 3;
+            btnClearCash.FlatStyle = FlatStyle.Flat;
+            btnClearCash.Font = new Font("Roboto SemiBold", 12F, FontStyle.Bold);
+            btnClearCash.ForeColor = Color.FromArgb(33, 39, 56);
+            btnClearCash.Location = new Point(283, 195);
+            btnClearCash.Name = "btnClearCash";
+            btnClearCash.Size = new Size(137, 61);
+            btnClearCash.TabIndex = 41;
+            btnClearCash.Text = "CLEAR";
+            btnClearCash.UseVisualStyleBackColor = false;
+            btnClearCash.Click += btnClearCash_Click;
+            // 
+            // btnDot
+            // 
+            btnDot.BackColor = Color.FromArgb(87, 196, 229);
+            btnDot.Dock = DockStyle.Fill;
+            btnDot.FlatAppearance.BorderColor = Color.FromArgb(33, 39, 56);
+            btnDot.FlatAppearance.BorderSize = 3;
+            btnDot.FlatStyle = FlatStyle.Flat;
+            btnDot.Font = new Font("Roboto SemiBold", 12F, FontStyle.Bold);
+            btnDot.ForeColor = Color.FromArgb(33, 39, 56);
+            btnDot.Location = new Point(143, 195);
+            btnDot.Name = "btnDot";
+            btnDot.Size = new Size(134, 61);
+            btnDot.TabIndex = 43;
+            btnDot.Text = ".";
+            btnDot.UseVisualStyleBackColor = false;
+            btnDot.Click += btnDot_Click;
             // 
             // btn00
             // 
@@ -892,91 +977,6 @@ namespace PAKOPointOfSale.Transactions
             btn00.Text = "0";
             btn00.UseVisualStyleBackColor = false;
             btn00.Click += btn00_Click;
-            // 
-            // btnKey7
-            // 
-            btnKey7.BackColor = Color.FromArgb(87, 196, 229);
-            btnKey7.Dock = DockStyle.Fill;
-            btnKey7.FlatAppearance.BorderColor = Color.FromArgb(33, 39, 56);
-            btnKey7.FlatAppearance.BorderSize = 3;
-            btnKey7.FlatStyle = FlatStyle.Flat;
-            btnKey7.Font = new Font("Roboto SemiBold", 12F, FontStyle.Bold);
-            btnKey7.ForeColor = Color.FromArgb(33, 39, 56);
-            btnKey7.Location = new Point(143, 67);
-            btnKey7.Name = "btnKey7";
-            btnKey7.Size = new Size(134, 58);
-            btnKey7.TabIndex = 36;
-            btnKey7.Text = "7";
-            btnKey7.UseVisualStyleBackColor = false;
-            btnKey7.Click += btnKey7_Click;
-            // 
-            // btnClearCash
-            // 
-            btnClearCash.BackColor = Color.FromArgb(87, 196, 229);
-            btnClearCash.Dock = DockStyle.Fill;
-            btnClearCash.FlatAppearance.BorderColor = Color.FromArgb(33, 39, 56);
-            btnClearCash.FlatAppearance.BorderSize = 3;
-            btnClearCash.FlatStyle = FlatStyle.Flat;
-            btnClearCash.Font = new Font("Roboto SemiBold", 12F, FontStyle.Bold);
-            btnClearCash.ForeColor = Color.FromArgb(33, 39, 56);
-            btnClearCash.Location = new Point(283, 67);
-            btnClearCash.Name = "btnClearCash";
-            btnClearCash.Size = new Size(137, 58);
-            btnClearCash.TabIndex = 41;
-            btnClearCash.Text = "CLEAR";
-            btnClearCash.UseVisualStyleBackColor = false;
-            btnClearCash.Click += btnClearCash_Click;
-            // 
-            // btnKey4
-            // 
-            btnKey4.BackColor = Color.FromArgb(87, 196, 229);
-            btnKey4.Dock = DockStyle.Fill;
-            btnKey4.FlatAppearance.BorderColor = Color.FromArgb(33, 39, 56);
-            btnKey4.FlatAppearance.BorderSize = 3;
-            btnKey4.FlatStyle = FlatStyle.Flat;
-            btnKey4.Font = new Font("Roboto SemiBold", 12F, FontStyle.Bold);
-            btnKey4.ForeColor = Color.FromArgb(33, 39, 56);
-            btnKey4.Location = new Point(3, 131);
-            btnKey4.Name = "btnKey4";
-            btnKey4.Size = new Size(134, 58);
-            btnKey4.TabIndex = 35;
-            btnKey4.Text = "4";
-            btnKey4.UseVisualStyleBackColor = false;
-            btnKey4.Click += btnKey4_Click;
-            // 
-            // btnDot
-            // 
-            btnDot.BackColor = Color.FromArgb(87, 196, 229);
-            btnDot.Dock = DockStyle.Fill;
-            btnDot.FlatAppearance.BorderColor = Color.FromArgb(33, 39, 56);
-            btnDot.FlatAppearance.BorderSize = 3;
-            btnDot.FlatStyle = FlatStyle.Flat;
-            btnDot.Font = new Font("Roboto SemiBold", 12F, FontStyle.Bold);
-            btnDot.ForeColor = Color.FromArgb(33, 39, 56);
-            btnDot.Location = new Point(283, 131);
-            btnDot.Name = "btnDot";
-            btnDot.Size = new Size(137, 58);
-            btnDot.TabIndex = 43;
-            btnDot.Text = ".";
-            btnDot.UseVisualStyleBackColor = false;
-            btnDot.Click += btnDot_Click;
-            // 
-            // btnKey3
-            // 
-            btnKey3.BackColor = Color.FromArgb(87, 196, 229);
-            btnKey3.Dock = DockStyle.Fill;
-            btnKey3.FlatAppearance.BorderColor = Color.FromArgb(33, 39, 56);
-            btnKey3.FlatAppearance.BorderSize = 3;
-            btnKey3.FlatStyle = FlatStyle.Flat;
-            btnKey3.Font = new Font("Roboto SemiBold", 12F, FontStyle.Bold);
-            btnKey3.ForeColor = Color.FromArgb(33, 39, 56);
-            btnKey3.Location = new Point(143, 131);
-            btnKey3.Name = "btnKey3";
-            btnKey3.Size = new Size(134, 58);
-            btnKey3.TabIndex = 34;
-            btnKey3.Text = "3";
-            btnKey3.UseVisualStyleBackColor = false;
-            btnKey3.Click += btnKey3_Click;
             // 
             // tableLayoutPanel4
             // 

@@ -117,10 +117,13 @@ namespace PAKOPointOfSale.Transactions
         }
 
         // ⬇ Updated SaveAsPdf() to include voidNumber parameter
+
         private static void SaveAsPdf(
             string invoiceNumber,
             string voidNumber,
-            List<(string productName, string productCode, decimal qty, decimal unitPrice, decimal total, decimal discount, string discountType, string uom)> items,
+            List<(string productName, string productCode, decimal qty,
+                decimal unitPrice, decimal total, decimal discount,
+                string discountType, string uom)> items,
             decimal vatAmount, decimal vatableSales, decimal vatExempt,
             decimal subTotal, decimal grandTotal,
             string paymentMethod, decimal cashReceived, decimal cashChange)
@@ -128,73 +131,343 @@ namespace PAKOPointOfSale.Transactions
             try
             {
                 string appPath = Application.StartupPath;
-                string pdfPath = Path.Combine(appPath, $"Void_{invoiceNumber}.pdf");
 
-                var doc = new PdfDocument();
+                string safeVoidNumber = string.Join(
+                    "_", voidNumber.Split(Path.GetInvalidFileNameChars()));
+
+                string pdfPath = Path.Combine(
+                    appPath, $"Void_{safeVoidNumber}.pdf");
+
+                const double receiptWidth = 80 * 72.0 / 25.4;
+                const double margin = 14;
+                const double lineHeight = 12;
+
+                double contentWidth = receiptWidth - margin * 2;
+
+                using var doc = new PdfDocument();
                 var page = doc.AddPage();
+
                 page.Width = XUnit.FromMillimeter(80);
-                page.Height = XUnit.FromMillimeter(280);
+                page.Height = XUnit.FromPoint(2000);
 
-                var gfx = XGraphics.FromPdfPage(page);
-                var font = new XFont("Consolas", 9, XFontStyle.Regular);
-                var bold = new XFont("Consolas", 9, XFontStyle.Bold);
-
-                double x = 0;
-                double y = 10;
-                double lineHeight = 12;
-
-                gfx.DrawString("PAKO Riderstuff", bold, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
-                gfx.DrawString("**VOID RECEIPT**", bold, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
-
-                // ✅ Add void number before invoice number
-                gfx.DrawString($"Void No: {voidNumber}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
-                gfx.DrawString($"Invoice: {invoiceNumber}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
-
-                gfx.DrawString($"Date: {DateTime.Now:yyyy-MM-dd HH:mm}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
-                gfx.DrawString("--------------------------------------", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
-                gfx.DrawString("ITEM          QTY  PRICE   TOTAL", bold, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
-
-                foreach (var it in items)
+                using (var gfx = XGraphics.FromPdfPage(page))
                 {
-                    string displayName = it.productName.Length > 10 ? it.productCode : it.productName;
-                    string qtyText = it.qty.ToString().PadLeft(5);
-                    string priceText = it.unitPrice.ToString("N2").PadLeft(7);
-                    string totalText = it.total.ToString("N2").PadLeft(8);
+                    var storeFont = new XFont(
+                        "Arial", 14, XFontStyle.Bold);
 
-                    gfx.DrawString($"{displayName.PadRight(10)}{"-" + qtyText}{"-" + priceText}{"-" + totalText}", font, XBrushes.Black, new XPoint(x, y));
-                    y += lineHeight;
+                    var titleFont = new XFont(
+                        "Arial", 10, XFontStyle.Bold);
 
-                    if (!string.IsNullOrWhiteSpace(it.discountType) && !it.discountType.Equals("none", StringComparison.OrdinalIgnoreCase) && it.discount > 0)
+                    var boldFont = new XFont(
+                        "Arial", 8, XFontStyle.Bold);
+
+                    var regularFont = new XFont(
+                        "Arial", 8, XFontStyle.Regular);
+
+                    var smallFont = new XFont(
+                        "Arial", 7, XFontStyle.Regular);
+
+                    var totalFont = new XFont(
+                        "Arial", 12, XFontStyle.Bold);
+
+                    var grayBrush = new XSolidBrush(
+                        XColor.FromArgb(90, 90, 90));
+
+                    var separatorPen = new XPen(
+                        XColor.FromArgb(100, 100, 100), 0.6);
+
+                    double y = 14;
+
+                    void DrawText(
+                        string text, XFont font,
+                        double x, double top, double width,
+                        XStringAlignment alignment = XStringAlignment.Near,
+                        XBrush brush = null)
                     {
-                        gfx.DrawString($" -₱{it.discount:N2} ({it.discountType})", font, XBrushes.Black, new XPoint(x + 5, y));
+                        var format = new XStringFormat
+                        {
+                            Alignment = alignment,
+                            LineAlignment = XLineAlignment.Near
+                        };
+
+                        gfx.DrawString(
+                            text,
+                            font,
+                            brush ?? XBrushes.Black,
+                            new XRect(x, top, width, 18),
+                            format);
+                    }
+
+                    void Center(string text, XFont font, double top)
+                    {
+                        DrawText(
+                            text, font, 0, top,
+                            receiptWidth, XStringAlignment.Center);
+                    }
+
+                    void Separator(double top)
+                    {
+                        gfx.DrawLine(
+                            separatorPen,
+                            margin, top,
+                            receiptWidth - margin, top);
+                    }
+
+                    void DrawPair(
+                        string label, string value,
+                        XFont font = null)
+                    {
+                        font ??= regularFont;
+
+                        DrawText(label, font, margin, y, contentWidth);
+
+                        DrawText(
+                            value, font, margin, y,
+                            contentWidth, XStringAlignment.Far);
+
                         y += lineHeight;
                     }
-                }
 
-                gfx.DrawString("--------------------------------------", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
-                gfx.DrawString($"Subtotal:     -₱{subTotal:N2}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
-                gfx.DrawString($"VATable Sales:      -₱{vatableSales:N2}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
-                gfx.DrawString($"VAT Amount (12%):    -₱{vatAmount:N2}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
-                gfx.DrawString($"VAT Exempt:  -₱{vatExempt:N2}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
-                gfx.DrawString("--------------------------------------", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
-                gfx.DrawString($"GRAND TOTAL:  -₱{grandTotal:N2}", bold, XBrushes.Black, new XPoint(x, y)); y += lineHeight + 4;
-                gfx.DrawString($"Payment: {paymentMethod}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
-                gfx.DrawString($"Cash:         -₱{cashReceived:N2}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
-                gfx.DrawString($"Change:       -₱{cashChange:N2}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight + 8;
-                gfx.DrawString("THIS DOCUMENT IS NOT VALID FOR CLAIM OF INPUT TAX", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
+                    void DrawWrappedText(
+                        string text, XFont font,
+                        double x, double top,
+                        double maxWidth, double height)
+                    {
+                        if (string.IsNullOrWhiteSpace(text))
+                        {
+                            y += height;
+                            return;
+                        }
+
+                        string[] words = text.Split(
+                            new[] { ' ', '\t', '\r', '\n' },
+                            StringSplitOptions.RemoveEmptyEntries);
+
+                        string line = "";
+
+                        foreach (string word in words)
+                        {
+                            string candidate = string.IsNullOrEmpty(line)
+                                ? word
+                                : line + " " + word;
+
+                            if (gfx.MeasureString(candidate, font).Width
+                                <= maxWidth)
+                            {
+                                line = candidate;
+                            }
+                            else
+                            {
+                                if (!string.IsNullOrEmpty(line))
+                                {
+                                    DrawText(
+                                        line, font, x, top, maxWidth);
+
+                                    top += height;
+                                }
+
+                                line = "";
+
+                                // Split unusually long words when necessary.
+                                foreach (char ch in word)
+                                {
+                                    string next = line + ch;
+
+                                    if (line.Length > 0 &&
+                                        gfx.MeasureString(next, font).Width
+                                        > maxWidth)
+                                    {
+                                        DrawText(
+                                            line, font, x, top, maxWidth);
+
+                                        top += height;
+                                        line = ch.ToString();
+                                    }
+                                    else
+                                    {
+                                        line = next;
+                                    }
+                                }
+                            }
+                        }
+
+                        if (!string.IsNullOrEmpty(line))
+                        {
+                            DrawText(line, font, x, top, maxWidth);
+                            top += height;
+                        }
+
+                        y = top;
+                    }
+
+                    // HEADER
+                    Center("TUZON VARIETY STORE", storeFont, y);
+                    y += 20;
+
+                    Separator(y);
+                    y += 9;
+
+                    Center("VOID", titleFont, y);
+                    y += 17;
+
+                    DrawPair("Void No.:", voidNumber);
+                    DrawPair("Original Invoice:", invoiceNumber);
+
+                    DrawPair(
+                        "Date:",
+                        DateTime.Now.ToString("MMM dd, yyyy HH:mm"));
+
+                    y += 4;
+                    Separator(y);
+                    y += 10;
+
+                    // ITEMS HEADER
+                    DrawText(
+                        "ITEMS",
+                        boldFont, margin, y, contentWidth);
+
+                    y += 15;
+
+                    DrawText(
+                        "QTY", boldFont, margin, y, 48);
+
+                    DrawText(
+                        "PRICE", boldFont, margin + 85, y, 65);
+
+                    DrawText(
+                        "AMOUNT", boldFont, margin, y,
+                        contentWidth, XStringAlignment.Far);
+
+                    y += 10;
+                    Separator(y);
+                    y += 9;
+
+                    // VOIDED ITEMS
+                    foreach (var it in items)
+                    {
+                        string productName =
+                            string.IsNullOrWhiteSpace(it.productCode)
+                                ? it.productName
+                                : it.productCode;
+
+                        DrawWrappedText(
+                            productName,
+                            boldFont,
+                            margin,
+                            y,
+                            contentWidth,
+                            lineHeight);
+
+                        DrawText(
+                            $"{it.qty:N2} {it.uom}",
+                            smallFont, margin, y, 48);
+
+                        DrawText(
+                            $"₱{it.unitPrice:N2}",
+                            smallFont, margin + 85, y, 65);
+
+                        DrawText(
+                            $"-₱{it.total:N2}",
+                            smallFont, margin, y,
+                            contentWidth, XStringAlignment.Far);
+
+                        y += lineHeight + 3;
+
+                        if (!string.IsNullOrWhiteSpace(it.discountType) &&
+                            !it.discountType.Equals(
+                                "none", StringComparison.OrdinalIgnoreCase) &&
+                            it.discount > 0)
+                        {
+                            DrawText(
+                                $"Discount ({it.discountType}): " +
+                                $"-₱{it.discount:N2}",
+                                smallFont,
+                                margin + 4, y, contentWidth - 4,
+                                XStringAlignment.Near,
+                                grayBrush);
+
+                            y += lineHeight;
+                        }
+
+                        y += 3;
+                    }
+
+                    // VOID TOTALS
+                    Separator(y);
+                    y += 12;
+
+                    DrawPair("Subtotal", $"-₱{subTotal:N2}");
+                    DrawPair("VATable Sales", $"-₱{vatableSales:N2}");
+                    DrawPair("VAT Amount (12%)", $"-₱{vatAmount:N2}");
+                    DrawPair("VAT Exempt Sales", $"-₱{vatExempt:N2}");
+
+                    y += 4;
+                    Separator(y);
+                    y += 12;
+
+                    DrawText(
+                        "VOIDED TOTAL",
+                        titleFont, margin, y, contentWidth);
+
+                    y += 17;
+
+                    DrawText(
+                        $"-₱{grandTotal:N2}",
+                        totalFont, margin, y,
+                        contentWidth, XStringAlignment.Far);
+
+                    y += 22;
+                    Separator(y);
+                    y += 12;
+
+                    // PAYMENT DETAILS
+                    DrawPair("Payment Method", paymentMethod);
+                    DrawPair("Cash Received", $"-₱{cashReceived:N2}");
+                    DrawPair("Change", $"-₱{cashChange:N2}");
+
+                    y += 7;
+                    Separator(y);
+                    y += 15;
+
+                    // FOOTER AND DISCLAIMER
+                    Center("TRANSACTION VOIDED", boldFont, y);
+                    y += 16;
+
+                    Center(
+                        "THIS DOCUMENT IS NOT VALID FOR",
+                        smallFont, y);
+                    y += 11;
+
+                    Center(
+                        "CLAIM OF INPUT TAX",
+                        smallFont, y);
+                    y += 17;
+
+                    Center(
+                        "TUZON VARIETY STORE",
+                        smallFont, y);
+
+                    y += 18;
+                }
 
                 doc.Save(pdfPath);
 
-                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
-                {
-                    FileName = pdfPath,
-                    UseShellExecute = true
-                });
+                System.Diagnostics.Process.Start(
+                    new System.Diagnostics.ProcessStartInfo
+                    {
+                        FileName = pdfPath,
+                        UseShellExecute = true
+                    });
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error saving PDF: " + ex.Message, "PDF Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "Error saving void PDF: " + ex.Message,
+                    "PDF Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
+
     }
 }
