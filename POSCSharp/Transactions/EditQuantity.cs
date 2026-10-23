@@ -15,8 +15,8 @@ namespace PAKOPointOfSale.Transactions
     public partial class EditQuantity : Form
     {
         private int _productId;
-        private SalesInvoice _salesInvoice;
-        public EditQuantity(int productId, SalesInvoice salesInvoice)
+        private PointOfSale _salesInvoice;
+        public EditQuantity(int productId, PointOfSale salesInvoice)
         {
             _productId = productId;
             _salesInvoice = salesInvoice;

@@ -17,9 +17,9 @@ namespace PAKOPointOfSale.Transactions
     public partial class SearchProduct : Form
     {
         private DataTable productsTable;
-        private SalesInvoice _salesInvoice;
+        private PointOfSale _salesInvoice;
         private string _barcode = "";
-        public SearchProduct(SalesInvoice salesInvoice, string? barcode = "")
+        public SearchProduct(PointOfSale salesInvoice, string? barcode = "")
         {
             InitializeComponent();
             _barcode = string.IsNullOrEmpty(barcode) ? "" : barcode;

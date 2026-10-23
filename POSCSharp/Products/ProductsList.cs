@@ -61,6 +61,7 @@ namespace PAKOPointOfSale.Products
             loadPermissions();
             setDefaultDisplayedColumns();
             ApplyColumnVisibility();
+
         }
 
         public void setDefaultDisplayedColumns()

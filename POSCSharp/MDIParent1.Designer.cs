@@ -782,6 +782,7 @@ namespace PAKOPointOfSale
             panel3.Name = "panel3";
             panel3.Size = new Size(1367, 788);
             panel3.TabIndex = 195;
+            panel3.Paint += panel3_Paint;
             // 
             // panel2
             // 

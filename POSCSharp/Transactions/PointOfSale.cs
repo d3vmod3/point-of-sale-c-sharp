@@ -20,13 +20,13 @@ using TextBox = System.Windows.Forms.TextBox;
 
 namespace PAKOPointOfSale.Transactions
 {
-    public partial class SalesInvoice : Form
+    public partial class PointOfSale : Form
     {
         private DataTable productsTable;
         private Double manualCashInputAmount = 0.00;
         private int TransactionID = 0;
         private string ParkNumber = "";
-        public SalesInvoice()
+        public PointOfSale()
         {
             InitializeComponent();
             this.KeyPreview = true;
@@ -1144,8 +1144,8 @@ namespace PAKOPointOfSale.Transactions
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblDate.Text = DateTime.Now.ToString("MM/dd/yyyy");
-            lblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
+            //lblDate.Text = DateTime.Now.ToString("MM/dd/yyyy");
+            //lblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -1474,9 +1474,9 @@ namespace PAKOPointOfSale.Transactions
                 ParkNumber = parkedTransactions.ParkNumber;
 
 
-                lblParkLabel.Visible = true;
-                lblParkNumber.Visible = true;
-                lblParkNumber.Text = ParkNumber;
+
+                lblPendingNumber.Visible = true;
+                lblPendingNumber.Text = "Pending number: " + ParkNumber;
                 //load the transaction to the cart
                 loadTransactionAndParkedItemDetails(TransactionID, ParkNumber);
 
@@ -1503,9 +1503,8 @@ namespace PAKOPointOfSale.Transactions
         {
             num_cash.Value = 0;
             lblChange.Text = "0.00";
-            lblParkLabel.Visible = false;
-            lblParkNumber.Visible = false;
-            lblParkNumber.Text = "000000";
+            lblPendingNumber.Visible = false;
+            lblPendingNumber.Text = "Pending Number: ";
             lblDiscountAmount.Text = "0.00";
             TransactionID = 0;
             ParkNumber = "";
@@ -1850,8 +1849,39 @@ namespace PAKOPointOfSale.Transactions
         private void num_cash_Leave(object sender, EventArgs e)
         {
             num_cash.Text = num_cash.Value.ToString("N2");
-            lblChange.Text =Convert.ToDecimal
+            lblChange.Text = Convert.ToDecimal
                 (Convert.ToDecimal(num_cash.Value) - Convert.ToDecimal(lblTotal.Text)).ToString("N2");
+        }
+
+        private void btnEndShift_Click(object sender, EventArgs e)
+        {
+            if (LoggedInUser.HasPermission("Dashboard", "view"))
+            {
+                ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Sales Invoice",
+                description: "Clicked Close button",
+                payload: null
+            );
+                this.Close();
+            }
+            else
+            {
+                var loginForm = new Login();
+                loginForm.Show();
+                LoggedInUser.Logout(this);
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "End Shift",
+                    description: "Clicked End Shift button",
+                    payload: new
+                    {
+                        status = "success"
+                    }
+                );
+            }
         }
     }
 }

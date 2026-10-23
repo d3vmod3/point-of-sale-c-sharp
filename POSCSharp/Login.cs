@@ -58,7 +58,7 @@ namespace PAKOPointOfSale
                     }
                     else
                     {
-                        Transactions.SalesInvoice salesInvoiceForm = new Transactions.SalesInvoice();
+                        Transactions.PointOfSale salesInvoiceForm = new Transactions.PointOfSale();
                         salesInvoiceForm.ShowDialog();
                     }
                         return;

@@ -68,18 +68,18 @@
             createdatDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             edit = new DataGridViewButtonColumn();
             label1 = new Label();
-            panel1 = new Panel();
-            label2 = new Label();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            lblTime = new Label();
-            lblDate = new Label();
-            label8 = new Label();
             pictureBox4 = new PictureBox();
+            label8 = new Label();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            lblDate = new Label();
+            lblTime = new Label();
+            label2 = new Label();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
-            panel1.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            tableLayoutPanel1.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // productBindingSource
@@ -431,32 +431,28 @@
             label1.Text = "Display\r\nColumns:";
             label1.Click += label1_Click_1;
             // 
-            // panel1
+            // pictureBox4
             // 
-            panel1.BackColor = Color.FromArgb(33, 39, 56);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(tableLayoutPanel1);
-            panel1.Controls.Add(label8);
-            panel1.Controls.Add(pictureBox4);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1368, 69);
-            panel1.TabIndex = 195;
+            pictureBox4.BackColor = Color.Transparent;
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(3, 0);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(74, 63);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 189;
+            pictureBox4.TabStop = false;
             // 
-            // label2
+            // label8
             // 
-            label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Roboto", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.FromArgb(237, 242, 239);
-            label2.Location = new Point(602, 13);
-            label2.Name = "label2";
-            label2.Size = new Size(197, 42);
-            label2.TabIndex = 194;
-            label2.Text = "PRODUCTS";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
+            label8.AutoSize = true;
+            label8.BackColor = Color.Transparent;
+            label8.Font = new Font("Roboto", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.FromArgb(237, 242, 239);
+            label8.Location = new Point(62, 12);
+            label8.Name = "label8";
+            label8.Size = new Size(127, 42);
+            label8.TabIndex = 191;
+            label8.Text = "ATPOS";
             // 
             // tableLayoutPanel1
             // 
@@ -473,19 +469,6 @@
             tableLayoutPanel1.Size = new Size(200, 69);
             tableLayoutPanel1.TabIndex = 192;
             // 
-            // lblTime
-            // 
-            lblTime.Anchor = AnchorStyles.Right;
-            lblTime.AutoSize = true;
-            lblTime.BackColor = Color.Transparent;
-            lblTime.Font = new Font("Roboto", 11.25F);
-            lblTime.ForeColor = Color.White;
-            lblTime.Location = new Point(109, 42);
-            lblTime.Name = "lblTime";
-            lblTime.Size = new Size(88, 18);
-            lblTime.TabIndex = 160;
-            lblTime.Text = "hh:mm:ss tt";
-            // 
             // lblDate
             // 
             lblDate.Anchor = AnchorStyles.Right;
@@ -499,28 +482,45 @@
             lblDate.TabIndex = 159;
             lblDate.Text = "MM/DD/YYYY";
             // 
-            // label8
+            // lblTime
             // 
-            label8.AutoSize = true;
-            label8.BackColor = Color.Transparent;
-            label8.Font = new Font("Roboto", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.FromArgb(237, 242, 239);
-            label8.Location = new Point(62, 12);
-            label8.Name = "label8";
-            label8.Size = new Size(127, 42);
-            label8.TabIndex = 191;
-            label8.Text = "ATPOS";
+            lblTime.Anchor = AnchorStyles.Right;
+            lblTime.AutoSize = true;
+            lblTime.BackColor = Color.Transparent;
+            lblTime.Font = new Font("Roboto", 11.25F);
+            lblTime.ForeColor = Color.White;
+            lblTime.Location = new Point(109, 42);
+            lblTime.Name = "lblTime";
+            lblTime.Size = new Size(88, 18);
+            lblTime.TabIndex = 160;
+            lblTime.Text = "hh:mm:ss tt";
             // 
-            // pictureBox4
+            // label2
             // 
-            pictureBox4.BackColor = Color.Transparent;
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(3, 0);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(74, 63);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 189;
-            pictureBox4.TabStop = false;
+            label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Roboto", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(237, 242, 239);
+            label2.Location = new Point(602, 13);
+            label2.Name = "label2";
+            label2.Size = new Size(197, 42);
+            label2.TabIndex = 194;
+            label2.Text = "PRODUCTS";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(33, 39, 56);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(tableLayoutPanel1);
+            panel1.Controls.Add(label8);
+            panel1.Controls.Add(pictureBox4);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1368, 69);
+            panel1.TabIndex = 195;
             // 
             // ProductsList
             // 
@@ -554,11 +554,11 @@
             KeyDown += ProductsList_KeyDown;
             ((System.ComponentModel.ISupportInitialize)productBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -605,12 +605,12 @@
         private DataGridViewTextBoxColumn is_active;
         private DataGridViewTextBoxColumn createdatDataGridViewTextBoxColumn;
         private DataGridViewButtonColumn edit;
-        private Panel panel1;
+        private PictureBox pictureBox4;
+        private Label label8;
         private TableLayoutPanel tableLayoutPanel1;
         private Label lblTime;
         private Label lblDate;
-        private Label label8;
-        private PictureBox pictureBox4;
         private Label label2;
+        private Panel panel1;
     }
 }

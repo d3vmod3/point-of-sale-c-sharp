@@ -275,7 +275,7 @@ namespace PAKOPointOfSale
                 description: "Clicked Point of Sale button",
                 payload: null
             );
-            Transactions.SalesInvoice salesInvoiceForm = new Transactions.SalesInvoice();
+            Transactions.PointOfSale salesInvoiceForm = new Transactions.PointOfSale();
             salesInvoiceForm.ShowDialog();
         }
 
@@ -855,6 +855,11 @@ namespace PAKOPointOfSale
         }
 
         private void lblTime_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
         }

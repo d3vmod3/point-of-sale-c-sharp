@@ -70,7 +70,7 @@
     <Compile Update="Transactions\Return\ReturnReason.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Transactions\SalesInvoice.cs">
+    <Compile Update="Transactions\PointOfSale.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Transactions\SearchProduct.cs">
